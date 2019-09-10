@@ -5,46 +5,16 @@ let VADistricts = {};
 let app = {};
 let freeze=0;
 let $sidebar = $('#sidebar');
+let flipped = 0;
 
-
-
-var vote_context =  {
-    "priority_votes": [{
-        "vote_title":"1. Automatic Voter Registration",
-        "vote_description":"LD 1483 would automatically register eligible citizens to vote when they receive or renew their driver's license or ID at the Bureau of Motor Vehicles and/or when they apply for or renew their eligibility for MaineCare, unless they opt out. It would also pre-register 16-year-old citizens when they get their first driver's license or state ID.",
-        "result":"RESULT: SIGNED INTO LAW"
-    },
-        {
-            "vote_title":"2. National Popular Vote",
-            "vote_description": "LD 816 would have Maine join the National Popular Vote Compact, which would guarantee the Presidency to the candidate who receives the most popular votes in all 50 states and the District of Columbia. It gained enough support to pass in the Senate, but ultimately failed in the House.",
-            "result":"RESULT: DEFEATED"
-        },
-        {
-            "vote_title": "3. Presidential Primary",
-            "vote_description": "LD 1626 was the Secretary of State's bill to restore presidential primaries in Maine. This was among our highest priorities, as it would implement a more inclusive and confidential system than caucuses. Its passage means that Maine will be among states voting on Super Tuesday, March 3, 2020.",
-            "result": "RESULT: SIGNED INTO LAW"
-        },
-        {
-            "vote_title": "4. Lobbyist Contribution Ban",
-            "vote_description": "LD 54 would prohibit lobbyists from contributing to candidates’ political campaigns year-round (their contributions were already banned during the legislative session. The bill that passed is much narrower in scope than we wanted — it does not include contributions from the companies or organizations that employ the lobbyists — but it's a step in the right direction.",
-            "result": "RESULT: PARTIAL VICTORY"
-        },
-        {
-            "vote_title":"5. Ranked Choice Voting",
-            "vote_description": "Constitutional Amendment LD 1477 would amend the Maine Constitution to permit ranked choice voting (RCV) in general elections for governor and state legislature. Because it's a constitutional amendment, this bill required the approval of two-thirds in each chamber before going to the voters for ratification. Despite gaining majorities in both chambers, it failed final passage. ",
-            "result":"RESULT: DEFEATED"
-        }, {
-            "vote_title":"6. Early Voting",
-            "vote_description": "LD 619 is an amendment to the Maine Constitution that would allow municipalities to hold early voting up to 30 days before an election. Early voting is supported by the Maine Secretary of State and the Maine Town and City Clerks Association, as well as by the League of Women Voters. The bill failed to gain the needed two-thirds majority in both chambers.",
-            "result":"RESULT: DEFEATED"
-        }]
-};
 
 let map = L.map('map', {
     scrollWheelZoom: false,
     zoomSnap: 0.25,
     minZoom: 7,
 }).setView([37.76, -79.3],7);
+
+
 // var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
 
 // control that shows state info on hover
@@ -89,6 +59,20 @@ let geoStyle = function(data) {
 
 window.addEventListener('DOMContentLoaded', init);
 
+document.addEventListener('DOMContentLoaded', function () {
+    let checkbox = document.querySelector('input[type="checkbox"]');
+
+    checkbox.addEventListener('change', function () {
+        if (checkbox.checked) {
+            flipped = 1;
+            console.log('Checked', flipped);
+        } else {
+            flipped= 0;
+            console.log('Not checked', flipped);
+        }
+    });
+});
+
 $(document).ready(function () {
     let key_votes = $("#senate-template-bottom").html();
     app.template = Handlebars.compile(key_votes);
@@ -96,13 +80,10 @@ $(document).ready(function () {
     let sourcebox = $("#senate-template-infobox").html();
     app.infoboxTemplate = Handlebars.compile(sourcebox);
 
-    let html = app.template(vote_context);
-
     let map_help = $("#welcome-map-help").html();
     app.welcome = Handlebars.compile(map_help);
-    $sidebar.append(app.welcome)
+    $sidebar.append(app.welcome);
 
-    $("#priorityVotes").append(html);
 
     Tabletop.init( { key: public_spreadsheet_url,
         callback: showInfo,
@@ -110,15 +91,8 @@ $(document).ready(function () {
 });
 function showInfo(sheet_data, tabletop) {
     let scoreColor;
-    let flipped = ( $("input.primary:checked + .slider ").is(':checked') ) ? 1 : 0;
-
     $.each(tabletop.sheets("va house").all(), function(i, member) {
-
-        if (flipped === 1) {
-            scoreColor = getColor(member.party_flip);
-        }else {
-            scoreColor = getColor(member.party);
-        }
+        scoreColor = getColor(member.party);
         member['scoreColor'] = scoreColor;
         VADistricts[member.current_district] = member;
     });
@@ -148,9 +122,6 @@ function loadGeo() {
 function getColor(party) {
     return  party === "R"? '#BF353B' : //#0079f2' :
         party === "D" ? '#27609c': //'#ff3636' :
-            score > 49 ? '#FEF200' :
-                score > 24 ? '#FDC300' :
-                    score > 0 ? '#FC8400' :
                         'rgb(255,255,0)';
 }
 
