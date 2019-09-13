@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-9">
                 <h2>House Map
-<!--                    </br> <small  class="text-muted">Find out your legislators' scores.</small>-->
+                    <!--                    </br> <small  class="text-muted">Find out your legislators' scores.</small>-->
                 </h2>
             </div>
             <div class="col-3 ">
@@ -41,7 +41,7 @@
         <div class="row mt-2">
             <div class="col-4 default-text">
                 <ul class="nav nav-pills flex-column flex-sm-row">
-                    <a style="background-color:white; color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="#">Senate</a>
+                    <a style="background-color:white; color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="./2019-senate-scorecard-map.html">Senate</a>
                     <a style="background-color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="./2019-house-scorecard-map.html">House</a>
 
                 </ul>
@@ -71,13 +71,13 @@
             </div>
         </div>
 
-              <div class="row">
-        <div id="sidebar" class="col-4 default-text">
-        </div>
-        <div id="map" class="col-8">
+        <div class="row">
+            <div id="sidebar" class="col-4 default-text">
+            </div>
+            <div id="map" class="col-8">
+            </div>
         </div>
     </div>
-</div>
 
 </div><!-- /container -->
 <!--<script type="text/javascript" src="js/vendor/tabletop.min.js"></script>-->
@@ -85,7 +85,7 @@
 
 <script type="text/javascript" src="./maps/tl_2019_51_sldl.js"></script>
 
-<script src="js/app-va-house-2019.js"></script>
+<script src="js/app-2019-va-house.js"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -110,7 +110,7 @@
     {{#each priority_votes}}
     <div class="entry priority_vote" id="bookmark_{{@index}}">
         <div class="body">
-           <h5><a href="#top">{{vote_title}}</a></h5>
+            <h5><a href="#top">{{vote_title}}</a></h5>
             <p>{{{vote_description}}}</p>
             {{result}}
         </div>
@@ -119,7 +119,7 @@
 </script>
 
 <script id="senate-template-infobox" type="text/x-handlebars-template">
-    <div class="entry parent" style="background-color: {{scoreColor}}; z-index:100;" >
+    <div class="entry parent" style="background-color: {{ scoreColor }}; z-index:100;" >
         <div class="infobox child">
             <button type='button' id='close' class='close'>&times;</button>
             <br>
