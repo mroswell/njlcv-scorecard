@@ -99,10 +99,9 @@
         <li><strong>Click the 'x'</strong> to dismiss the info panel and re-enable mouseover
           function.
         </li>
+                <li><strong>Flip</strong> switch to show races targeted by flippable</li>
+
       </ul>
-      <p class="text-right" style="font-family: 'Archivo Narrow', sans-serif;">
-        Download the <a style="background-color:white; color: #0c0b3e; padding:0;" href="#"><i class="fas fa-file-pdf fa-2x" aria-hidden="true"></i> </a> PDF
-      </p>
 
     </div>
   </div>
@@ -124,9 +123,11 @@
     <div class="infobox child">
       <button type='button' id='close' class='close'>&times;</button>
       <br>
-      <p class="child-header"> {{{name}}} ({{{party}}})</p>
-      <p style="text-align:center">District {{{current_district}}}</p>
-      {{#if district_email}}<p style="font-family: 'Archivo Narrow', sans-serif;text-align:center">{{{district_email}}}</p>{{/if}}
+      <h4 style="text-align:center">District {{{current_district}}}</h4>
+      <p><br />Incumbent:</p>
+      <p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>
+
+      {{#if opponent}}<p><br />Flippable race:</p><p class="child-header" style='background-color: #2C65EC'>{{opponent}} (D)</p>{{/if}}
 
       <br>
 
@@ -140,6 +141,7 @@
                 a = a.trim();
             }
         }
+
         if (a === b) {
             return opts.fn(this);
         } else if (a==="nonvote") {

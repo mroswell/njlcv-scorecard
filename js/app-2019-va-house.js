@@ -97,7 +97,6 @@ function showInfo(sheet_data, tabletop) {
     $.each(tabletop.sheets("va house").all(), function(i, member) {
         member["normalScoreColor"] = getColor(member.party);
         member["flippedScoreColor"] = getColor(member.party_flip);
-        console.log(member["flippedScoreColor"]);
         VADistricts[member.current_district] = member;
     });
     loadGeo();
@@ -135,9 +134,9 @@ function loadGeo() {
 // get color depending on score value
 function getColor(party) {
     return party === "R"
-        ? "#BF353B" //#0079f2' :
+        ? "#DA3326"//"#BF353B" //#0079f2' :
         : party === "D"
-            ? "#27609c" //'#ff3636' :
+            ? "#2C65EC"//"#27609c" //'#ff3636' :
             : "rgb(255,255,0)";
 }
 

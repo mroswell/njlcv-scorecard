@@ -10,6 +10,7 @@ let normalLayer;
 let flippedLayer;
 let clickedMemberNumber;
 
+
 let map = L.map("map", {
     scrollWheelZoom: false,
     zoomSnap: 0.25,
@@ -132,9 +133,9 @@ function loadGeo() {
 // get color depending on score value
 function getColor(party) {
     return party === "R"
-        ? "#BF353B" //#0079f2' :
+        ? "#DA3326"//"#BF353B" //#0079f2' :
         : party === "D"
-            ? "#27609c" //'#ff3636' :
+            ? "#2C65EC"//"#27609c" //'#ff3636' :
             : "rgb(255,255,0)";
 }
 
