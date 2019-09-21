@@ -3,31 +3,31 @@ let public_spreadsheet_url = "1FoLv0alzLYDt3D5iQ3zbPXP0HS71_vgju-ESlDY_ayM";
 let senateLayer;
 let VADistricts = {};
 let app = {};
-let freeze = 0;
+let freeze=0;
 let $sidebar = $("#sidebar");
 let flipped = 0;
 let normalLayer;
 let flippedLayer;
 let clickedMemberNumber;
 
+
 let map = L.map("map", {
     scrollWheelZoom: false,
     zoomSnap: 0.25,
     minZoom: 7
-}).setView([37.76, -79.3], 7);
-
+}).setView([37.76, -79.3],7);
 // var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
 
 // control that shows state info on hover
 let info = L.control({ position: "bottomright" });
 
-info.onAdd = function(map) {
+info.onAdd = function (map) {
     this._div = L.DomUtil.create("div", "info");
     this.update();
     return this._div;
 };
 
-info.update = function(props) {
+info.update = function (props) {
     this._div.innerHTML = props
         ? "<b>" + props.NAMELSAD + "</b>"
         : "Hover over a district";
@@ -35,7 +35,8 @@ info.update = function(props) {
 
 info.addTo(map);
 function init() {
-    Tabletop.init({
+    console.log("initialized");
+    Tabletop.init( {
         key: public_spreadsheet_url,
         callback: showInfo,
         // simpleSheet: true,
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     let key_votes = $("#senate-template-bottom").html();
     app.template = Handlebars.compile(key_votes);
 
@@ -94,25 +95,22 @@ $(document).ready(function() {
 });
 function showInfo(sheet_data, tabletop) {
     flipped = false;
-    $.each(tabletop.sheets("va house").all(), function(i, member) {
+    $.each(tabletop.sheets("va senate").all(), function (i, member) {
         member["normalScoreColor"] = getColor(member.party);
         member["flippedScoreColor"] = getColor(member.party_flip);
-        console.log(member["flippedScoreColor"]);
         VADistricts[member.current_district] = member;
     });
     loadGeo();
 }
-
 function loadGeo() {
     let tileLayer = L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
         {
-            maxZoom: 18,
-            minZoom: 7,
-            attribution:
-                'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        minZoom:7,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: "mapbox.light"
         }
     );
@@ -135,18 +133,19 @@ function loadGeo() {
 // get color depending on score value
 function getColor(party) {
     return party === "R"
-        ? "#BF353B" //#0079f2' :
+        ? "#DA3326"//"#BF353B" //#0079f2' :
         : party === "D"
-            ? "#27609c" //'#ff3636' :
+            ? "#2C65EC"//"#27609c" //'#ff3636' :
             : "rgb(255,255,0)";
 }
+
 
 function highlightFeature(e) {
     let layer = e.target;
     let districtNumber = layer.feature.properties.NAMELSAD.split(" ").pop();
     let memberDetail = VADistricts[districtNumber];
     clickedMemberNumber = districtNumber;
-    if (!memberDetail) {
+    if(!memberDetail){
         console.log("No memberDetail");
         return;
     }
@@ -211,14 +210,13 @@ function onEachFeature(feature, layer) {
     });
 }
 
-map.attributionControl.addAttribution(
-    'District Boundaries &copy; <a href="http://census.gov/">US Census Bureau</a>'
-);
+map.attributionControl.addAttribution('District Boundaries &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
-$(document).on("click", ".close", function(event) {
+
+$(document).on("click",".close",function(event) {
     event.preventDefault();
     clearInfobox();
-    freeze = 0;
+    freeze=0;
 });
 
 function clearInfobox() {
