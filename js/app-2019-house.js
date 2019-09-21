@@ -98,7 +98,6 @@ function showInfo(sheet_data, tabletop) {
     $.each(tabletop.sheets("va house").all(), function(i, member) {
         member["normalScoreColor"] = getColor(member.party);
         member["flippedScoreColor"] = getColor(member.party_flip);
-        console.log(member["flippedScoreColor"]);
         VADistricts[member.current_district] = member;
     });
     loadGeo();
