@@ -85,7 +85,7 @@
 
 <script type="text/javascript" src="./maps/tl_2019_51_sldl.js"></script>
 
-<script src="js/app-2019-va-house.js"></script>
+<script src="js/app-2019-house.js"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -126,6 +126,7 @@
       <h4 style="text-align:center">District {{{current_district}}}</h4>
       <p><br />Incumbent:</p>
       <p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>
+
 
       {{#if opponent}}<p><br />Flippable race:</p><p class="child-header" style='background-color: #2C65EC'>{{opponent}} (D)</p>{{/if}}
 
