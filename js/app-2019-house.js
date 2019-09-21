@@ -9,7 +9,6 @@ let flipped = 0;
 let normalLayer;
 let flippedLayer;
 let clickedMemberNumber;
-console.log("pleased");
 
 let map = L.map("map", {
     scrollWheelZoom: false,

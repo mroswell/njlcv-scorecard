@@ -35,7 +35,6 @@ info.update = function (props) {
 
 info.addTo(map);
 function init() {
-    console.log("initialized");
     Tabletop.init( {
         key: public_spreadsheet_url,
         callback: showInfo,
