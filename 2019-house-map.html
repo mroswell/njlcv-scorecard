@@ -102,9 +102,12 @@
             <button type='button' id='close' class='close'>&times;</button>
             <br>
       <h4 style="text-align:center">District {{{district}}}</h4>
-      <p  style="text-align:center">{{#if ldi}}LDI: {{{ldi}}}{{/if}}<br />
-          {{#if d_r_2017_old}}Dem/Rep 2017 (old district): {{{d_r_2017_old}}}{{/if}}<br />
-          {{#if northam_gillespie_old}}Northam/Gillespie: {{{northam_gillespie_old}}}{{/if}}<br />
+      <p  style="text-align:center">
+          {{#if ldi}}LDI: {{{ldi}}}<br />{{/if}}
+
+          {{#if incumbent_party}}Incumbent (or Open): {{{incumbent_party}}}{{/if}}</p>
+          {{#if d_r_2017_old}}Dem/Rep 2017 (old district): {{{d_r_2017_old}}}<br />{{/if}}
+          {{#if northam_gillespie_old}}Northam/Gillespie: {{{northam_gillespie_old}}}<br />{{/if}}
           {{#if northam_gillespie_new}}Northam/Gillespie: {{{northam_gillespie_new}}}{{/if}}
       </p>
 
