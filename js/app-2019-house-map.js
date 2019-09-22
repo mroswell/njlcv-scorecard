@@ -63,24 +63,7 @@ let geoStyle = function(data, flipped) {
 
 window.addEventListener("DOMContentLoaded", init);
 
-document.addEventListener("DOMContentLoaded", function() {
-    let checkbox = document.querySelector('input[type="checkbox"]');
-
-    checkbox.addEventListener("change", function() {
-        if (checkbox.checked) {
-            flipped = 1;
-            map.removeLayer(normalLayer);
-            flippedLayer.addTo(map);
-        } else {
-            flipped = 0;
-            map.removeLayer(flippedLayer);
-            normalLayer.addTo(map);
-        }
-        if (clickedMemberNumber) {
-            memberDetailFunction(clickedMemberNumber);
-        }
-    });
-});
+// nort
 
 $(document).ready(function() {
     let key_votes = $("#senate-template-bottom").html();
@@ -135,11 +118,10 @@ function loadGeo() {
 
 // get color depending on score value
 function getColor(incumbent_party) {
-    return incumbent_party === "R"
-        ? "#DA3326"//"#BF353B" //#0079f2' :
-        : incumbent_party === "D"
-            ? "#2C65EC"//"#27609c" //'#ff3636' :
-            : "rgb(255,255,0)";
+    return incumbent_party === "R" ? "#DA3326"
+        : incumbent_party === "D" ? "#2C65EC"
+            : incumbent_party === "O" ? "#808080"
+            : "rgb(215,215,39)";
 }
 
 function highlightFeature(e) {
