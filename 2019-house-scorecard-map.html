@@ -85,7 +85,7 @@
 
 <script type="text/javascript" src="./maps/tl_2019_51_sldl.js"></script>
 
-<script src="js/app-2019-house.js"></script>
+<script src="js/app-2019-house-map.js"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -123,12 +123,14 @@
         <div class="infobox child">
             <button type='button' id='close' class='close'>&times;</button>
             <br>
-      <h4 style="text-align:center">District {{{current_district}}}</h4>
-      <p><br />Incumbent:</p>
-      <p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>
+      <h4 style="text-align:center">District {{{district}}}</h4>
+      <p><br />{{#if incumbent_party}}Incumbent: {{{incumbent_party}}}{{/if}}</p>
+      <!--<p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>-->
 
 
-      {{#if opponent}}<p><br />Flippable race:</p><p class="child-header" style='background-color: #2C65EC'>{{opponent}} (D)</p>{{/if}}
+      {{#if d_candidate}}<p>Democrat Candidate<br /></p><p class="child-header" style='background-color: #2C65EC'>{{d_candidate}} (D)</p>{{/if}}
+
+            {{#if d_candidate}}<p>Republican Candidate<br /></p><p class="child-header" style='background-color: #DA3326'>{{r_candidate}} (D)</p>{{/if}}
 
       <br>
 
