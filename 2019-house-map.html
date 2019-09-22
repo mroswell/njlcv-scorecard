@@ -46,29 +46,7 @@
 
                 </ul>
             </div>
-            <div class="col-8">
-                <div class="container">
-                    <div class="row">
 
-                        <div class="col-md-6">
-                            <div class="card" style="margin:50px 0">
-                                <!-- Default panel contents -->
-
-                                <ul class="list-group list-group-flush">
-
-                                    <li class="list-group-item">
-                                        Flippable!
-                                        <label class="switch ">
-                                            <input type="checkbox" name="checkbox" class="primary">
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="row">
@@ -125,17 +103,24 @@
             <br>
       <h4 style="text-align:center">District {{{district}}}</h4>
       <p  style="text-align:center">{{#if ldi}}LDI: {{{ldi}}}{{/if}}<br />
-          {{#if incumbent_party}}Incumbent: {{{incumbent_party}}}{{/if}}</p>
+          {{#if d_r_2017_old}}Dem/Rep 2017 (old district): {{{d_r_2017_old}}}{{/if}}<br />
+          {{#if northam_gillespie_old}}Northam/Gillespie: {{{northam_gillespie_old}}}{{/if}}<br />
+          {{#if northam_gillespie_new}}Northam/Gillespie: {{{northam_gillespie_new}}}{{/if}}
+      </p>
 
       <!--<p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>-->
 
 
       {{#if d_candidate}}<p class="child-header" style='background-color: #2C65EC'>{{d_candidate}} (D)</p>{{/if}}
 
-            <p>{{#if donate_link}}Donate link: <a style="text-decoration:underline" href="{{donate_link}}">Donate</a>{{/if}}</p>
+            <p>{{#if donate_link}}Donate link: <a target="_blank" style="text-decoration:underline" href="{{donate_link}}">Donate</a>{{/if}}</p>
+            <p>{{#if video_link}}Video: <a target="_blank" style="text-decoration:underline" href="{{video_link}}">{{video_link}}{{/if}}</a></p>
             <p>{{#if dem_cash_on_hand_8_31_19}}Cash on Hand: {{dem_cash_on_hand_8_31_19}}{{/if}}</p>
+
             {{#if r_candidate}}<p class="child-header" style='background-color: #DA3326'>{{r_candidate}} (D)</p>{{/if}}
-            {{#if commentary}}Notes: {{commentary}} (D)</p>{{/if}}
+            <p>{{#if r_cash_on_hand}}Cash on Hand: {{r_cash_on_hand}}{{/if}}</p>
+
+            {{#if commentary}}<p><hr /></p><strong>Notes:</strong> {{commentary}} (D)</p>{{/if}}
 
       <br>
 
