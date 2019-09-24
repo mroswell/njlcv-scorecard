@@ -1,154 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+// let public_spreadsheet_url = '1MVQ30DNes3hozskjPNTNSYE8m-yR9PboKTokC8YNlk4';
+let public_spreadsheet_url = "1CibYv386n3sbSpyh9TNe5fxy74lre2lVOEKyQY_6IZQ";
+// let senateLayer;
+let VADistricts = {};
+let app = {};
+let freeze = 0;
+let $sidebar = $("#sidebar");
+let flipped = 0;
+let normalLayer;
+let flippedLayer;
+let clickedMemberNumber;
 
-    <title>Virginia</title>
+let map = L.map("map", {
+    scrollWheelZoom: false,
+    zoomSnap: 0.25,
+    minZoom: 7
+}).setView([37.76, -79.3], 7);
 
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Pragati+Narrow|Roboto+Condenseda|Roboto:400,700,900&display=swap"
-          rel="stylesheet">
+// var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
 
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
-    <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+// control that shows state info on hover
+let info = L.control({ position: "bottomright" });
 
+info.onAdd = function(map) {
+    this._div = L.DomUtil.create("div", "info");
+    this.update();
+    return this._div;
+};
 
-    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />    -->
-    <script src="./js/vendor/leaflet.js" crossorigin=""></script>
-    <script src="https://kit.fontawesome.com/349ec13eb2.js"></script>
+info.update = function(props) {
+    this._div.innerHTML = props
+        ? "<b>" + props.NAMELSAD + "</b>"
+        : "Hover over a district";
+};
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.7/handlebars.js" integrity="sha256-3kxM38zABJY692X6ViIlt9FsBimhck0ZlsLtuA7R+0Y=" crossorigin="anonymous"></script>
-</head>
-<body>
-<div class="feature-wrapper pt-5 pb-5 mt-5 mt-lg-0">
-    <!-- wides go inside wrapper but outside outer and inner -->
-    <div class="container" id="top">
-        <div class="row">
-            <div class="col-9">
-                <h2>Senate Map
-                    <!--                    </br> <small  class="text-muted">Find out your legislators' scores.</small>-->
-                </h2>
-            </div>
-            <div class="col-3 ">
-
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-4 default-text">
-                <ul class="nav nav-pills flex-column flex-sm-row">
-                    <a style="background-color: #0c0b3e" class="flex-fill text-sm-center nav-link active"
-                       href="./2019-senate-map.html">Senate</a>
-                    <a style="color:#0c0b3e;" class="flex-fill text-sm-center nav-link"
-                       href="./2019-house-map.html">House</a>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row">
-            <div id="sidebar" class="col-4 default-text">
-            </div>
-            <div id="map" class="col-8">
-            </div>
-        </div>
-    </div>
-
-</div><!-- /container -->
-<!--<script type="text/javascript" src="js/vendor/tabletop.min.js"></script>-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-
-<script type="text/javascript" src="./maps/tl_2019_51_sldu.js"></script>
-
-<script src="js/app-2019-senate-map.js"></script>
-
-<script id="welcome-map-help" type="text/x-handlebars-template">
-    <div class="entry-default-text" style="padding-top:14px; display:block;">
-        <div id=default-text class="body">
-            <!--<p id='close2' class='close'>&times;</p><br>-->
-            <h4 style="text-align: center">Welcome</h4>
-            <ul>
-                <li><strong>Mouseover</strong> a district for details.</li>
-                <li><strong>Click a district</strong> to freeze the info panel.</li>
-                <li><strong>Zoom</strong> into selected district to see street detail.</li>
-                <li><strong>Click the 'x'</strong> to dismiss the info panel and re-enable mouseover
-                    function.
-                </li>
-                <li><strong>Flip</strong> switch to show races targeted by flippable</li>
-
-            </ul>
-
-        </div>
-    </div>
-</script>
-<script id="senate-template-bottom" type="text/x-handlebars-template">
-    {{#each priority_votes}}
-    <div class="entry priority_vote" id="bookmark_{{@index}}">
-        <div class="body">
-            <h5><a href="#top">{{vote_title}}</a></h5>
-            <p>{{{vote_description}}}</p>
-            {{result}}
-        </div>
-    </div>
-    {{/each}}
-</script>
-
-<script id="senate-template-infobox" type="text/x-handlebars-template">
-    <div class="entry parent" style="background-color: {{scoreColor}}; z-index:100;">
-        <div class="infobox child">
-            <button type='button' id='close' class='close'>&times;</button>
-            <br>
-            <h4 style="text-align:center">District {{{district}}}</h4>
-            <p style="text-align:center">
-                {{#if ldi}}LDI: {{{ldi}}}<br/>{{/if}}
-                {{#if incumbent_party}}Incumbent (or Open): {{{incumbent_party}}}<br/>{{/if}}
-                {{#if d_r_2015}}Dem/Rep 2017 (old district): {{{d_r_2015}}}<br/>{{/if}}
-                {{#if northam_gillespie}}Northam/Gillespie: {{{northam_gillespie}}}<br/>{{/if}}
-            </p>
-
-            <!--<p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>-->
-
-
-            {{#if d_candidate}}<p class="child-header" style='background-color: #2C65EC'>{{d_candidate}} (D)</p>{{/if}}
-
-            <p>{{#if donate_link}}Donate link: <a target="_blank" style="text-decoration:underline"
-                                                  href="{{donate_link}}">Donate</a>{{/if}}</p>
-            <p>{{#if video_link}}Video: <a target="_blank" style="text-decoration:underline" href="{{video_link}}">{{video_link}}{{/if}}</a>
-            </p>
-            <!--<p>{{#if dem_cash_on_hand_8_31_19}}Cash on Hand: {{dem_cash_on_hand_8_31_19}}{{/if}}</p>-->
-
-            {{#if r_candidate}}<p class="child-header" style='background-color: #DA3326'>{{r_candidate}} (D)</p>{{/if}}
-            <p>{{#if r_cash_on_hand}}Cash on Hand: {{r_cash_on_hand}}{{/if}}</p>
-
-            {{#if commentary}}<p>
-            <hr/>
-            </p><strong>Notes:</strong> {{commentary}} (D)</p>{{/if}}
-
-            <br>
-
-        </div>
-    </div>
-</script>
-<script>
-    Handlebars.registerHelper('if_eq', function (a, b, opts) {
-        if (typeof a !== "undefined") {
-            if (typeof a === "string") {
-                a = a.trim();
-            }
-        }
-
-        if (a === b) {
-            return opts.fn(this);
-        } else if (a === "nonvote") {
-            return '<i class="fas fa-minus-circle fa-2x"></i>'
-        } else {
-            return opts.inverse(this);
-        }
+info.addTo(map);
+function init() {
+    Tabletop.init({
+        key: public_spreadsheet_url,
+        callback: showInfo,
+        // simpleSheet: true,
+        parseNumbers: true
     });
-</script>
-</body>
-</html>
+
+}
+
+function showInfo(sheet_data, tabletop) {
+    flipped = false;
+    $.each(tabletop.sheets("senate").all(), function(i, member) {
+        member["normalScoreColor"] = getColor(member.incumbent_party);
+        // console.log(member);
+        member["flippedScoreColor"] = getColor(member.party_flip);
+        VADistricts[member.district] = member;
+    });
+    loadGeo();
+}
+
+let geoStyle = function(data, flipped) {
+    let dist = data.properties.NAMELSAD.split(" ").pop();
+    let incumbent_party = VADistricts[dist].incumbent_party;
+    let party_flip = VADistricts[dist].party_flip;
+    let scoreColor = getColor(incumbent_party);
+    let flippedColor = getColor(party_flip);
+
+    return {
+        fillColor: flipped ? flippedColor : scoreColor,
+        weight: 2,
+        opacity: 0.3,
+        color: "#fefefe",
+        dashArray: "0",
+        fillOpacity: 0.9
+    };
+};
+    window.addEventListener("DOMContentLoaded", init);
+
+$(document).ready(function() {
+    let key_votes = $("#senate-template-bottom").html();
+    app.template = Handlebars.compile(key_votes);
+
+    let sourcebox = $("#senate-template-infobox").html();
+    app.infoboxTemplate = Handlebars.compile(sourcebox);
+
+    let map_help = $("#welcome-map-help").html();
+    app.welcome = Handlebars.compile(map_help);
+    $sidebar.append(app.welcome);
+});
+
+
+function loadGeo() {
+    let tileLayer = L.tileLayer(
+        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+        {
+            maxZoom: 18,
+            minZoom: 7,
+            attribution:
+                'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: "mapbox.light"
+        }
+    );
+
+    tileLayer.addTo(map);
+
+    normalLayer = L.geoJson(geosenate, {
+        onEachFeature: onEachFeature,
+        style: data => geoStyle(data, false)
+    });
+
+    flippedLayer = L.geoJson(geosenate, {
+        onEachFeature: onEachFeature,
+        style: data => geoStyle(data, true)
+    });
+
+    normalLayer.addTo(map);
+}
+
+// get color depending on score value
+function getColor(incumbent_party) {
+    return incumbent_party === "R" ? "#DA3326"
+        : incumbent_party === "D" ? "#2C65EC"
+            : incumbent_party === "O" ? "#808080"
+            : "rgb(215,215,39)";
+}
+
+function highlightFeature(e) {
+    let layer = e.target;
+    let districtNumber = layer.feature.properties.NAMELSAD.split(" ").pop();
+    let memberDetail = VADistricts[districtNumber];
+    clickedMemberNumber = districtNumber;
+    if (!memberDetail) {
+        console.log("No memberDetail");
+        return;
+    }
+    if (!flipped) {
+        memberDetail["scoreColor"] = memberDetail["normalScoreColor"];
+    } else {
+        memberDetail["scoreColor"] = memberDetail["flippedScoreColor"];
+    }
+    layer.setStyle({
+        weight: 5,
+        color: "#666",
+        dashArray: "",
+        fillOpacity: 0.2
+    });
+    if (!freeze) {
+        html = app.infoboxTemplate(memberDetail);
+        $sidebar.html(html);
+        if (!L.Browser.ie && !L.Browser.opera) {
+            layer.bringToFront();
+        }
+        info.update(layer.feature.properties);
+    }
+}
+
+function resetHighlight(e) {
+    let layer = e.target;
+    if (flipped) {
+        flippedLayer.resetStyle(layer);
+    } else {
+        normalLayer.resetStyle(layer);
+    }
+    info.update();
+}
+
+function mapMemberDetailClick(e) {
+    freeze = 1;
+    let boundary = e.target;
+    let districtNumber = boundary.feature.properties.NAMELSAD.split(" ").pop();
+    let member = memberDetailFunction(districtNumber);
+}
+
+function memberDetailFunction(memberNumber) {
+    clickedMemberNumber = memberNumber;
+    let districtDetail = VADistricts[memberNumber];
+    if (!flipped) {
+        districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
+    } else {
+        districtDetail["scoreColor"] = districtDetail["flippedScoreColor"];
+    }
+    let html = app.infoboxTemplate(districtDetail);
+    $sidebar.html(html);
+}
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: mapMemberDetailClick
+    });
+}
+
+map.attributionControl.addAttribution(
+    'District Boundaries &copy; <a href="http://census.gov/">US Census Bureau</a>'
+);
+
+$(document).on("click", ".close", function(event) {
+    event.preventDefault();
+    clearInfobox();
+    freeze = 0;
+});
+
+function clearInfobox() {
+    $sidebar.html(" ");
+    $sidebar.append(app.welcome);
+    let $heading = $(".entry-default-text h4");
+    $heading.html("Map Help");
+}
