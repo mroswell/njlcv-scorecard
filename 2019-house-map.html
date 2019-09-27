@@ -113,14 +113,15 @@
             <button type='button' id='close' class='close'>&times;</button>
             <br>
       <h4 style="text-align:center">District {{{district}}}</h4>
-      <p  style="text-align:center">
-          {{#if ldi}}LDI: {{{ldi}}}<br />{{/if}}
+            <p style="text-align:center">
+                {{#if funding_priority}}Funding Priority: {{funding_priority}}<br/>{{/if}}
+                {{#if win_rating}}Win Rating: {{win_rating}}<br/>{{/if}}
+                {{#if pickup_potential}}Pickup Potential: {{pickup_potential}}<br/>{{/if}}
+                <!--{{#if incumbent_party}}Incumbent (or Open): {{{incumbent_party}}}<br/>{{/if}}-->
+                {{#if d_r_2015}}Dem/Rep 2015 (old district): {{{d_r_2015}}}<br/>{{/if}}
+                {{#if northam_gillespie}}Northam/Gillespie: {{{northam_gillespie}}}<br/>{{/if}}
+            </p>
 
-          {{#if incumbent_party}}Incumbent (or Open): {{{incumbent_party}}}<br />{{/if}}
-          {{#if d_r_2017_old}}Dem/Rep 2017 (old district): {{{d_r_2017_old}}}<br />{{/if}}
-          {{#if northam_gillespie_old}}Northam/Gillespie: {{{northam_gillespie_old}}}<br />{{/if}}
-          {{#if northam_gillespie_new}}Northam/Gillespie: {{{northam_gillespie_new}}}{{/if}}
-      </p>
 
       <!--<p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>-->
 
