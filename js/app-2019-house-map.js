@@ -78,7 +78,7 @@ $(document).ready(function() {
 });
 function showInfo(sheet_data, tabletop) {
     flipped = false;
-    $.each(tabletop.sheets("va house").all(), function(i, member) {
+    $.each(tabletop.sheets("house").all(), function(i, member) {
         member["normalScoreColor"] = getColor(member.incumbent_party);
         member["flippedScoreColor"] = getColor(member.party_flip);
         VADistricts[member.district] = member;
