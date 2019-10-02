@@ -57,7 +57,7 @@ let geoStyle = function(data, flipped) {
         opacity: 0.3,
         color: "#fefefe",
         dashArray: "0",
-        fillOpacity: 0.9
+        fillOpacity: 0.8
     };
 };
 
