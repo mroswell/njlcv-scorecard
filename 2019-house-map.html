@@ -29,22 +29,18 @@
     <!-- wides go inside wrapper but outside outer and inner -->
     <div class="container" id="top">
         <div class="row">
-            <div class="col-6">
-                <h2>Virginia House Races
-                    </br> <small  class="text-muted">As Targeted by 31st St / Swing Left</small>
+            <div class="col-5">
+                <h2>NJLCV Scorecard
+                    </br> <small  class="text-muted"></small>
                 </h2>
             </div>
-            <div class="col-6">
+
+            <div class="col-7">
                 <div class='my-legend float-right'>
                     <!--div class='legend-title'>Legend:</div-->
                     <div class='legend-scale'>
-                        <ul class='legend-labels' class="text-right">
-                            <li>Legend:</li>
-                            <li><span style='background:#DA3326'></span>Republican Incumbent</li>
-                            <li><span style='background:#808080'></span>Open Seat</li>
-                            <li><span style='background:rgb(215,215,39)'></span>Not Targeted by SwingLeft</li>
-                            <li><span style='background:#2C65EC'></span>Democrat Incumbent</li>
-                        </ul>
+                        <svg height="62" version="1.1" width="600" xmlns="http://www.w3.org/2000/svg"  style="overflow: hidden; position: relative; left: -0.5px;" data-type="plot" data-index="0"> <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs> <text x="7" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;" font-weight="600"> <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Legend:</tspan> </text> <circle cx="90" cy="20" r="7" fill="#ff0000" style="-webkit-tap-highlight-color: rgba(255, 0, 0, 0);" data-type="elem" data-index="0" data-hidden="0"></circle> <text x="101" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;"font-weight="600"> <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0%</tspan> </text> <circle cx="162" cy="20" r="7" fill="#fc8400" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-type="elem" data-index="1" data-hidden="0"></circle> <text x="172" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;" font-weight="600"> <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(253, 195, 0, 0);">1&ndash;24%</tspan> </text> <circle cx="253" cy="20" r="7" fill="#FDC300" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-type="elem" data-index="2" data-hidden="0"></circle> <text x="265" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;" font-weight="600"> <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">25&ndash;49%</tspan> </text> <circle cx="352" cy="20" r="7" fill="#FEF200" style="-webkit-tap-highlight-color: rgba(255, 0, 0, 0);" data-type="elem" data-index="0" data-hidden="0"></circle> <text x="364" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;"  font-weight="600"> <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50&ndash;74%</tspan> </text> <circle cx="450" cy="20" r="7" fill="#82e0c3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " data-type="elem" data-index="1" data-hidden="0"></circle> <text x="461" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;" font-weight="600"> <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(253, 195, 0, 0);">75&ndash;99%</tspan> </text> <circle cx="555" cy="20" r="7" fill="#4eab07" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-type="elem" data-index="2" data-hidden="0"></circle> <text x="566" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;" font-weight="600"> <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100%</tspan> </text></svg>
+
                     </div>
                     <!--<div class='legend-source'>Source: <a href="#link to source">Name of source</a></div>-->
                 </div>
@@ -61,9 +57,9 @@
         </div>
 
         <div class="row">
-            <div id="sidebar" class="col-4 default-text">
+            <div id="sidebar" class="col-5 default-text">
             </div>
-            <div id="map" class="col-8">
+            <div id="map" class="col-7">
             </div>
         </div>
     </div>
@@ -72,8 +68,8 @@
 <!--<script type="text/javascript" src="js/vendor/tabletop.min.js"></script>-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
-<script type="text/javascript" src="./maps/tl_2019_51_sldl.js"></script>
-
+<script type="text/javascript" src="maps/nj_boundaries.js"></script>
+<script type="text/javascript"  src="maps/legislator_points.js"></script>
 <script src="js/app-2019-house-map.js"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
@@ -88,8 +84,6 @@
                 <li><strong>Click the 'x'</strong> to dismiss the info panel and re-enable mouseover
                     function.
                 </li>
-                <li><strong>Flip</strong> switch to show races targeted by flippable</li>
-
             </ul>
 
         </div>
@@ -112,14 +106,28 @@
         <div class="infobox child">
             <button type='button' id='close' class='close'>&times;</button>
             <br>
-      <h4 style="text-align:center">District {{{district}}}</h4>
-            <p style="text-align:center">
-                {{#if funding_priority}}Funding Priority: {{funding_priority}}<br/>{{/if}}
-                {{#if win_rating}}Win Rating: {{win_rating}}<br/>{{/if}}
-                {{#if pickup_potential}}Pickup Potential: {{pickup_potential}}<br/>{{/if}}
-                <!--{{#if incumbent_party}}Incumbent (or Open): {{{incumbent_party}}}<br/>{{/if}}-->
-                {{#if northamgillespie2017}}Northam/Gillespie 2017: {{{northamgillespie2017}}}<br/>{{/if}}
-            </p>
+            <p class="child-header"> {{{full_name}}} ({{{party}}})</p>
+
+            <h4 style="text-align:center">District {{{current_district}}}</h4>
+            {{#if district_email}}<p style="font-family: 'Archivo Narrow', sans-serif;text-align:center">{{{district_email}}}</p>{{/if}}
+            <p><a href="#bookmark_0">1. Upholding Paris Climate Accord</a>: {{#if_eq bill1 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+                {{/if_eq}}</p>
+            <p><a href="#bookmark_1">2. Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)</a>: {{#if_eq bill2 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+                {{/if_eq}}</p>
+            <p><a href="#bookmark_2">3. Participation in the Regional Greenhouse Gas Initiative</a>: {{#if_eq bill3 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+                {{/if_eq}}</p>
+            <p><a href="#bookmark_3">4. Condemns EPA decision to withdraw from "Once-In-Always-In” Policy (Clean Air Act)</a>: {{#if_eq bill4 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+                {{/if_eq}}</p>
+            <p><a href="#bookmark_4">5. Authorizes Prescribed Burning</a>: {{#if_eq bill5 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+                {{/if_eq}}</p>
+            <p><a href="#bookmark_5">6. Clean Renewable Energy Bill</a>: {{#if_eq bill6 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+                {{/if_eq}}</p>
 
       <!--<p class="child-header" style='background-color: {{#if_eq party "R"}}#DA3326{{else}}#2C65EC{{/if_eq}}'> {{{name}}} ({{{party}}})</p>-->
 
@@ -147,8 +155,14 @@
         }
         if (a === b) {
             return opts.fn(this);
-        } else if (a==="nonvote") {
+        } else if (a==="NV") {
             return '<i class="fas fa-minus-circle fa-2x"></i>'
+        } else if (a==="A") {
+            return '<div class="circle">Absent</div>'
+        } else if (a==="EX") {
+            return '<div class="circle">Excused</div>'
+        } else if (a==="NIO") {
+            return '<div class="circle">Not in Office</div>'
         } else {
             return opts.inverse(this);
         }

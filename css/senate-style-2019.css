@@ -4,8 +4,7 @@ html, body {
 }
 
 #map {
-    /*width: 640px;*/
-    height: 400px;
+    height: 630px;
     z-index:1;
 }
 
