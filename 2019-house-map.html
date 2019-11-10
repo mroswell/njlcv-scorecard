@@ -69,7 +69,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
-<script type="text/javascript"  src="maps/legislator_points.js"></script>
+<script type="text/javascript"  src="maps/legislator_points.js?5vaax"></script>
 <script src="js/app-2019-house-map.js"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
@@ -158,11 +158,11 @@
         } else if (a==="NV") {
             return '<i class="fas fa-minus-circle fa-2x"></i>'
         } else if (a==="A") {
-            return '<div class="circle">Absent</div>'
+            return '<span class="circle">&nbsp;&nbsp;Absent&nbsp;&nbsp;</span>'
         } else if (a==="EX") {
-            return '<div class="circle">Excused</div>'
+            return '<span class="circle">&nbsp;&nbsp;Excused&nbsp;&nbsp;</span>'
         } else if (a==="NIO") {
-            return '<div class="circle">Not in Office</div>'
+            return '<span class="circle wide105">&nbsp;&nbsp;Not in Office&nbsp;&nbsp;</span>'
         } else {
             return opts.inverse(this);
         }

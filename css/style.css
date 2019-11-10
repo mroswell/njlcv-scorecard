@@ -403,12 +403,16 @@ and (-webkit-min-device-pixel-ratio: 3) {
 }
 
 .circle{
-    width:60px;
+    white-space:nowrap;
+    width:70px;
     height:20px;
     border-radius:25px;
-    font-size:14px;
+    font-size:12px;
     color:#fff;
     line-height:20px;
     text-align:center;
-    background:#000
+    background:#515151;
+    font-family: 'Archivo Narrow', serif;
 }
+
+.wide105 {width:150px;}
