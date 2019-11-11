@@ -9,35 +9,107 @@ let clickedMemberNumber;
 
 
 let vote_context =  {
-    "priority_votes": [{
-        "vote_title":"1. Automatic Voter Registration",
-        "vote_description":"LD 1483 would automatically register eligible citizens to vote when they receive or renew their driver's license or ID at the Bureau of Motor Vehicles and/or when they apply for or renew their eligibility for MaineCare, unless they opt out. It would also pre-register 16-year-old citizens when they get their first driver's license or state ID.",
-        "result":"RESULT: SIGNED INTO LAW"
-    },
+    "priority_votes": [
         {
-            "vote_title":"2. National Popular Vote",
-            "vote_description": "LD 816 would have Maine join the National Popular Vote Compact, which would guarantee the Presidency to the candidate who receives the most popular votes in all 50 states and the District of Columbia. It gained enough support to pass in the Senate, but ultimately failed in the House.",
-            "result":"RESULT: DEFEATED"
+            "bill_number": "A1929",
+            "bill_name": "Upholding Paris Climate Accord",
+            "bill_description": "Requires N.J. to join the U.S. Climate Alliance to uphold the Paris Climate Accord, lower greenhouse gas emissions, and address the threats posed by climate change in accordance with the goals established by the alliance. This action is in response to President Trump’s withdrawal from the Paris Accord.",
+            "outcome": "Passed by the Senate (26-12), Passed by the Assembly (49-23), signed by the Governor P.L. 2018, c. 3.",
+            "stance": "Support"
         },
         {
-            "vote_title": "3. Presidential Primary",
-            "vote_description": "LD 1626 was the Secretary of State's bill to restore presidential primaries in Maine. This was among our highest priorities, as it would implement a more inclusive and confidential system than caucuses. Its passage means that Maine will be among states voting on Super Tuesday, March 3, 2020.",
-            "result": "RESULT: SIGNED INTO LAW"
+            "bill_number": "A839",
+            "bill_name": "Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)",
+            "bill_description": "This bill would prohibit offshore oil or natural gas exploration, development, and production in State waters (i.e., within three miles offshore), and prohibit the leasing of tidal or submerged lands in State waters for the purposes of oil or natural gas exploration, development, or production. Additionally, the bill would prohibit the DEP from issuing any permits and approvals for any development associated with offshore drilling in State waters or outside State waters.",
+            "outcome": "Passed by the Assembly (72-1), Passed by the Senate unanimously, Signed by the Governor P.L. 2018, c. 7",
+            "stance": "Support"
         },
         {
-            "vote_title": "4. Lobbyist Contribution Ban",
-            "vote_description": "LD 54 would prohibit lobbyists from contributing to candidates’ political campaigns year-round (their contributions were already banned during the legislative session. The bill that passed is much narrower in scope than we wanted — it does not include contributions from the companies or organizations that employ the lobbyists — but it's a step in the right direction.",
-            "result": "RESULT: PARTIAL VICTORY"
+            "bill_number": "A1212",
+            "bill_name": "Participation in the Regional Greenhouse Gas Initiative",
+            "bill_description": "Requires New Jersey’s reentry into and full participation in the Regional Greenhouse Gas Initiative. RGGI is a cooperative effort to cap and reduce CO2 emissions from the electricity generating sector and requires the state to adopt rules and regulations to guide this process.",
+            "outcome": "Passed by the Assembly (48-24), Received in the Senate",
+            "stance": "Support"
         },
         {
-            "vote_title":"5. Ranked Choice Voting",
-            "vote_description": "Constitutional Amendment LD 1477 would amend the Maine Constitution to permit ranked choice voting (RCV) in general elections for governor and state legislature. Because it's a constitutional amendment, this bill required the approval of two-thirds in each chamber before going to the voters for ratification. Despite gaining majorities in both chambers, it failed final passage. ",
-            "result":"RESULT: DEFEATED"
-        }, {
-            "vote_title":"6. Early Voting",
-            "vote_description": "LD 619 is an amendment to the Maine Constitution that would allow municipalities to hold early voting up to 30 days before an election. Early voting is supported by the Maine Secretary of State and the Maine Town and City Clerks Association, as well as by the League of Women Voters. The bill failed to gain the needed two-thirds majority in both chambers.",
-            "result":"RESULT: DEFEATED"
-        }]
+            "bill_number": "ACR144",
+            "bill_name": "Condemns EPA decision to withdraw from \"Once-In-Always-In” Policy (Clean Air Act)",
+            "bill_description": "Resolution condemns the United States Environmental Protection Agency for its decision to withdraw the “once-in-always-in” policy under the Clean Air Act. “Major sources” of hazardous air pollutants (HAP) are now allowed to reclassify as an “area source” after acting to limit emissions, which would relieve these facilities of the requirements of stricter regulations.",
+            "outcome": "Passed by the Assembly (52-13-8), Passed by the Senate (26-12), Filed with the Secretary of State",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "A1675",
+            "bill_name": "Authorizes Prescribed Burning",
+            "bill_description": "Authorizes prescribed burning for certain resources, requires the DEP to develop and administer a plan on burning wildland fire fuels for a reasonable fee, authorizes the DEP to assess against a landowner, addresses liability issues with prescribed burning, and allows the DEP to adopt regulations necessary to implement the bill.",
+            "outcome": "Passed by both chambers unanimously, Signed by the Governor P.L. 2018, c. 107",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "A3723",
+            "bill_name": "Clean Renewable Energy Bill",
+            "bill_description": "The landmark Clean Renewable Energy Bill reestablished New Jersey’s commitment to addressing the climate crisis and being a national leader in the clean energy economy by requiring 50% of the state’s energy to come from clean renewable energy by 2030. This bill catalyzes offshore wind development, kick starts a community solar pilot program, establishes aggressive annual energy efficiency goals, modifies the current solar market, and sets energy storage benchmarks.",
+            "outcome": "Passed by the Assembly (51-20-2), Passed by the Senate (29-8), Signed by the Governor P.L. 2018, c.17",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "A2014",
+            "bill_name": "Automatic Voter Registration",
+            "bill_description": "This bill requires the New Jersey Motor Vehicle Commission (MVC) to automatically register or update a person’s voter registration as part of the process of applying for or renewing a driver’s license.",
+            "outcome": "Passed by the Assembly (50-23), Passed by the Senate (24-13), Signed by the Governor P.L. 2018, c.6",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "A-2694",
+            "bill_name": "Stormwater Utilities",
+            "bill_description": "The Clean Stormwater and Flood Reduction Act authorizes local authorities to voluntarily establish stormwater utilities to dedicatedly fund necessary improvements to stormwater infrastructure, with a focus on green infrastructure to manage polluted stormwater. NJ’s water infrastructure is antiquated and overburdened and the state currently faces a $16B funding deficit with few options for localities to address fund these critical infrastructure improvements. Stormwater utilities are widely considered the most equitable and effective way to address stormwater management infrastructure needs and are used in over 40 states.",
+            "outcome": "Passed by the Senate (25-11), Passed by the Assembly (45-31), Signed by the Governor P.L.2019, c.42",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "A1371",
+            "bill_name": "Electric Vehicle Charging Infrastructure",
+            "bill_description": "Encourages municipalities to plan for the development of electric vehicle charging infra0xCAstructure at appropriate locations. By improving the infrastructure for electric vehicle charging, New Jersey can uphold the goals in the Energy Master Plan to promote and encourage the use of electric vehicles and reduce the emissions from our transportation sector.",
+            "outcome": "Passed by the Assembly (67-4-1), Passed by the Senate (26-4)",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "A4821",
+            "bill_name": "Updated Global Warming Response Act",
+            "bill_description": "This bill establishes new timeframes for the completion of the Legislature’s directives in the Global Warming Response Act. Specifically, with this update, the DEP is now required to adopt rules and promulgate regulations to meet the 80% economy-wide emissions reductions from 2006 levels by 2050 outlined in the original GWRA due to an added mandate that ensures action. This bill also requires the State to develop a comprehensive strategy and promulgate regulations to reduce short-lived climate pollutants in the State including black carbon.",
+            "outcome": "Passed by Senate (29-6), Passed by the Assembly (66-8-1), signed by the Governor P.L. 2019, c.197",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "S150",
+            "bill_name": "Partial Disclosure Bill",
+            "bill_description": "This bill requires C(4) non profits who are involved in policy and lobbying work to disclose their donors, while keeping big, well fueled corporations and trade organizations in the dark by requiring no new disclosure standards. This bill would severely impact nonprofits ability to fight against corporate interests.",
+            "outcome": "Passed by the Assembly (68-0-4), Passed by the Senate unanimously, Signed by the Governor P.L. 2019, c.124",
+            "stance": "Oppose"
+        },
+        {
+            "bill_number": "S2920",
+            "bill_name": "Permanent Open Space Funding",
+            "bill_description": "Establishes the funding allocations for the constitutional dedication of Corporation Business Tax (CBT) revenues for the State’s open space, farmland, and historic preservation programs for fiscal year 2020 and thereafter. For Fiscal Year 2020 and thereafter, this annual dedication is increased from four to six percent.",
+            "outcome": "Passed by both chambers unanimously, Signed by the Governor P.L. 2019, c. 136",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "S-2534",
+            "bill_name": "Prohibits Smoking at Public Beaches",
+            "bill_description": "Extends the “New Jersey Smoke-Free Air Act” to prohibit smoking at public beaches and parks. Public health is a top priority in New Jersey and this revision allows up to 15% of total area to be designated by the municipality or county by ordinance or resolution smoking area.",
+            "outcome": "Passed by the Senate (34-1), Passed by the Assembly (66-1-2), Signed by the Governor P.L 2018, c.64",
+            "stance": "Support"
+        },
+        {
+            "bill_number": "S-1074",
+            "bill_name": "Public Right of Access to Waterways and Beaches",
+            "bill_description": "Protects New Jerseyan\’s right to access the state’s natural resources including beaches and waterfronts. New Jersey is known for its beautiful 130-mile shore line and is an essential part of our states cultural identity and economy. This bill will ensure New Jersey residents will have the ability to enjoy these natural amenities and will not be denied access by developers and major property owners.",
+            "outcome": "Passed by the Senate (36-4), Passed by the Assembly (71-7-2), Signed by the Governor P.L. 2019, c.81",
+            "stance": "Support"
+        }
+    ]
+
 };
 
 let map = L.map("map", {

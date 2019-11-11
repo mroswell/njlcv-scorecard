@@ -37,10 +37,10 @@ body {
     color: #0B8973;
 }
 .entry.priority_vote {
-    height: 330px;
+    height: 450px;
     width:322px;
     margin:25px;
-    padding:37px;
+    padding:24px;
 }
 #priorityVotes {
     margin-left:10px;

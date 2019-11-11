@@ -10,7 +10,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -62,6 +62,15 @@
             <div id="map" class="col-7">
             </div>
         </div>
+        <div class="row">
+            <div class="about_us"><h4>Our Priority Bills</h4></div>
+            <div id="priorityVotes"></div>
+            <div class="about_us">
+                <h4>About Our Scorecard</h4>
+                <p>New Jersey LCV’s Environmental Scorecard rates each member of the New Jersey Senate and Assembly on their conservation record and actions taken to protect the environment in the Garden State. The Scorecard holds state legislators accountable for their votes on open space, water and air issues that affect families across our state. </p>
+                <p>You will find objective, nonpartisan information about how each member of the legislature voted on conservation issues. Scores are based on rigorous analysis, review, and consultation with environmental policy experts from across the state, and track the most important votes made in the 2017–2019 legislative session. We invite you to examine the scores of your representative and your senator to see how well their votes match up with your conservation values.</p>
+            </div>
+        </div>
     </div>
 
 </div><!-- /container -->
@@ -70,7 +79,7 @@
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
 <script type="text/javascript"  src="maps/legislator_points.js?5vaax"></script>
-<script src="js/app-2019-house-map.js"></script>
+<script src="js/app-2019-house-map.js?1"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -78,8 +87,8 @@
             <!--<p id='close2' class='close'>&times;</p><br>-->
             <h4 style="text-align: center">Welcome</h4>
             <ul>
-                <li><strong>Mouseover</strong> a district for details.</li>
-                <li><strong>Click a district</strong> to freeze the info panel.</li>
+                <li><strong>Mouseover</strong> a legislator dot for details.</li>
+                <li><strong>Click a dot</strong> to freeze the info panel.</li>
                 <li><strong>Zoom</strong> into selected district to see street detail.</li>
                 <li><strong>Click the 'x'</strong> to dismiss the info panel and re-enable mouseover
                     function.
@@ -93,8 +102,10 @@
     {{#each priority_votes}}
     <div class="entry priority_vote" id="bookmark_{{@index}}">
         <div class="body">
-            <h5><a href="#top">{{vote_title}}</a></h5>
-            <p>{{{vote_description}}}</p>
+            <h5><a href="#top">{{{bill_number}}}: {{bill_name}}</a></h5>
+            <p>{{{bill_description}}}</p>
+            <p>Stance: {{{stance}}}</p>
+            <p>Outcome: {{{outcome}}}</p>
             {{result}}
         </div>
     </div>
