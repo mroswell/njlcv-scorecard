@@ -130,7 +130,7 @@ function init() {
 let geoStyle = function(data) {
     console.log("data.properties", data.properties);
     let legisId = data.properties.legis_id;
-    console.log("---------legisId", legisId)
+    console.log("---------legisId", legisId);
 
     let scoreColor = getColor( NJDistricts[legisId].score_2019);
 
@@ -169,7 +169,6 @@ function showInfo(sheet_data, tabletop) {
         member["normalScoreColor"] = getColor(member.score_2019);
         member["lifetimeScoreColor"] = getColor(member.lifetime_score);
         NJDistricts[member.legis_id] = member;
-        //console.log(NJDistricts)
     });
     loadGeo();
 }
@@ -202,7 +201,6 @@ function loadGeo() {
         onEachFeature: onEachFeature,
         pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, geoStyle(feature));
-        // style: data => geoStyle(data, false)
         }
     });
     legislatorLayer.addTo(map);
@@ -226,13 +224,8 @@ function highlightFeature(e) {
     let legisId = layer.feature.properties.legis_id;
     let memberDetail = NJDistricts[legisId];
     clickedMemberNumber = legisId;
-    if (!memberDetail) {
-        console.log("No memberDetail");
-        return;
-    }
 
     memberDetail["scoreColor"] = memberDetail["normalScoreColor"];
-    console.log("memberDetail",memberDetail);
     layer.setStyle({
         weight: 5,
         color: "#666",
@@ -245,21 +238,16 @@ function highlightFeature(e) {
         if (!L.Browser.ie && !L.Browser.opera) {
             layer.bringToFront();
         }
-        // info.update(layer.feature.properties);
     }
 }
 
 function resetHighlight(e) {
     legislatorLayer.resetStyle(e.target);
     let districtNumber = legislatorLayer.feature.properties.legis_id;
-    // info.update(districtNumber);
 }
 
 function mapMemberDetailClick(e) {
     freeze = 1;
-    let boundary = e.target;
-    let districtNumber = boundary.feature.properties.legis_id;
-    let member = memberDetailFunction(districtNumber);
 }
 
 function memberDetailFunction(memberNumber) {
@@ -269,9 +257,6 @@ function memberDetailFunction(memberNumber) {
 
     let html = app.infoboxTemplate(districtDetail);
     $sidebar.html(html);
-}
-function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
 }
 
 function onEachFeature(feature, layer) {
