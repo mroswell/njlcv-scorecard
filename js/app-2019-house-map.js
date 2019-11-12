@@ -1,13 +1,10 @@
 let public_spreadsheet_url = "1Y9gCf778XtztI-EipsewXCnvFWYrpoyyYLmkisQp9Hs";
-
 let NJDistricts = {};
 let app = {};
 let freeze = 0;
 let $sidebar = $("#sidebar");
 let legislatorLayer;
 let clickedMemberNumber;
-
-
 let vote_context =  {
     "priority_votes": [
         {
@@ -62,14 +59,14 @@ let vote_context =  {
         {
             "bill_number": "A-2694",
             "bill_name": "Stormwater Utilities",
-            "bill_description": "The Clean Stormwater and Flood Reduction Act authorizes local authorities to voluntarily establish stormwater utilities to dedicatedly fund necessary improvements to stormwater infrastructure, with a focus on green infrastructure to manage polluted stormwater. NJ’s water infrastructure is antiquated and overburdened and the state currently faces a $16B funding deficit with few options for localities to address fund these critical infrastructure improvements. Stormwater utilities are widely considered the most equitable and effective way to address stormwater management infrastructure needs and are used in over 40 states.",
+            "bill_description": "The Clean Stormwater and Flood Reduction Act authorizes local authorities to volun&shy;tarily establish stormwater utilities to dedicatedly fund necessary improvements to stormwater infrastructure, with a focus on green infrastructure to manage polluted stormwater. NJ’s water infrastructure is antiquated and overburdened and the state currently faces a $16B funding deficit with few options for localities to address fund these critical infrastructure improvements. Stormwater utilities are widely considered the most equitable and effective way to address stormwater management infra&shy;structure needs and are used in over 40 states.",
             "outcome": "Passed by the Senate (25-11), Passed by the Assembly (45-31), Signed by the Governor P.L.2019, c.42",
             "stance": "Support"
         },
         {
             "bill_number": "A1371",
             "bill_name": "Electric Vehicle Charging Infrastructure",
-            "bill_description": "Encourages municipalities to plan for the development of electric vehicle charging infra0xCAstructure at appropriate locations. By improving the infrastructure for electric vehicle charging, New Jersey can uphold the goals in the Energy Master Plan to promote and encourage the use of electric vehicles and reduce the emissions from our transportation sector.",
+            "bill_description": "Encourages municipalities to plan for the development of electric vehicle charging infrastructure at appropriate locations. By improving the infrastructure for electric vehicle charging, New Jersey can uphold the goals in the Energy Master Plan to promote and encourage the use of electric vehicles and reduce the emissions from our transportation sector.",
             "outcome": "Passed by the Assembly (67-4-1), Passed by the Senate (26-4)",
             "stance": "Support"
         },
@@ -120,22 +117,7 @@ let map = L.map("map", {
 
 // var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
 
-// control that shows state info on hover
-let info = L.control({ position: "bottomright" });
 
-info.onAdd = function(map) {
-    this._div = L.DomUtil.create("div", "info");
-    this.update();
-    return this._div;
-};
-
-info.update = function(props) {
-    this._div.innerHTML = props
-        ? "<b>" + props.NAMELSAD + "</b>"
-        : "Hover over a district";
-};
-
-info.addTo(map);
 function init() {
     Tabletop.init({
         key: public_spreadsheet_url,
@@ -149,10 +131,8 @@ let geoStyle = function(data) {
     console.log("data.properties", data.properties);
     let legisId = data.properties.legis_id;
     console.log("---------legisId", legisId)
-    console.log("NJDistricts", NJDistricts);
-    console.log("NJDistricts[legisId].score_2019", NJDistricts[legisId].score_2019);
-    var score = NJDistricts[legisId].score_2019;
-    let scoreColor = getColor(score);
+
+    let scoreColor = getColor( NJDistricts[legisId].score_2019);
 
     return {
         radius: 6,
@@ -166,8 +146,6 @@ let geoStyle = function(data) {
 };
 
 window.addEventListener("DOMContentLoaded", init);
-
-// nort
 
 $(document).ready(function() {
     let key_votes = $("#senate-template-bottom").html();
@@ -189,6 +167,7 @@ function showInfo(sheet_data, tabletop) {
     $.each(tabletop.sheets("nj-assembly").all(), function(i, member) {
         console.log("member",member);
         member["normalScoreColor"] = getColor(member.score_2019);
+        member["lifetimeScoreColor"] =  getColor(member.lifetime_score);
         NJDistricts[member.legis_id] = member;
         //console.log(NJDistricts)
     });
@@ -233,8 +212,8 @@ function loadGeo() {
 
 // get color depending on score value
 function getColor(score) {
-    return score === "Medical leave" ? '#fefefe' :
-        score > 99 ? '#4EAB07' :
+    return score === "NIO" ? '#fefefe' :
+        score > 99 ? '#82BC00' : //' '#4EAB07' :
             score > 74 ? '#82e0c3' :
                 score > 49 ? '#FEF200' :
                     score > 24 ? '#FDC300' :
@@ -266,13 +245,14 @@ function highlightFeature(e) {
         if (!L.Browser.ie && !L.Browser.opera) {
             layer.bringToFront();
         }
-        info.update(layer.feature.properties);
+        // info.update(layer.feature.properties);
     }
 }
 
 function resetHighlight(e) {
     legislatorLayer.resetStyle(e.target);
-    info.update();
+    let districtNumber = legislatorLayer.feature.properties.legis_id;
+    // info.update(districtNumber);
 }
 
 function mapMemberDetailClick(e) {
