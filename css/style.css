@@ -9,7 +9,7 @@ body {
     float: left;
     width: 360px;
     border: solid black 1px;
-    height: 832px;
+    height: 1030px;
     padding: 18px;
     margin: 8px;
     background: white;
@@ -160,7 +160,7 @@ h2, h4, h5 {
 }
 
 i.fas.fa-thumbs-up.fa-2x, i.fas.fa-thumbs-down.fa-2x{
-    font-size: 1.8em;
+    font-size: 1.7em;
 }
 .fa-thumbs-up {
     color: #82BC00; //#4EAB07;a
@@ -422,3 +422,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
 }
 
 .wide105 {width:150px;}
+
+img.img-fluid {
+    height: 150px;
+}
