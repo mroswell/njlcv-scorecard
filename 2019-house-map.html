@@ -10,7 +10,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css?7">
+    <link rel="stylesheet" href="css/style.css?8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -79,8 +79,7 @@
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
 <script type="text/javascript"  src="maps/legislator_points.js?5va15"></script>
-<script src="js/app-2019-house-map.js?4"></script>
-<script src="js/app-2019-house-map.js?4axoew"></script>
+<script src="js/app-2019-house-map.js?5"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -118,8 +117,9 @@
         <div class="infobox child">
             <button type='button' id='close' class='close'>&times;</button>
             <br>
-            <p class="child-header" >{{{full_name}}} ({{{party}}})
-                <br><img src="{{{image}}}" class="img-fluid justify-content-center" alt="Photo">
+            <p class="child-header" >
+                <img src="{{{image}}}" class="img-fluid justify-content-center" alt="Photo">
+                <br>{{{full_name}}} ({{{party}}})
                 <br>District {{{current_district}}}
             </p>
 

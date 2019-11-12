@@ -135,7 +135,7 @@ let geoStyle = function(data) {
     let scoreColor = getColor( NJDistricts[legisId].score_2019);
 
     return {
-        radius: 6,
+        radius: 7,
         fillColor: scoreColor,
         weight: 2,
         opacity: 0.9,
@@ -167,7 +167,7 @@ function showInfo(sheet_data, tabletop) {
     $.each(tabletop.sheets("nj-assembly").all(), function(i, member) {
         console.log("member",member);
         member["normalScoreColor"] = getColor(member.score_2019);
-        member["lifetimeScoreColor"] =  getColor(member.lifetime_score);
+        member["lifetimeScoreColor"] = getColor(member.lifetime_score);
         NJDistricts[member.legis_id] = member;
         //console.log(NJDistricts)
     });
