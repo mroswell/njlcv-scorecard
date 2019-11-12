@@ -10,7 +10,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css?4">
+    <link rel="stylesheet" href="css/style.css?7">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -49,7 +49,7 @@
         <div class="row mt-2 mb-2">
             <div class="col-4 default-text">
                 <ul class="nav nav-pills flex-column flex-sm-row">
-                    <a style="background-color:white; color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="./2019-senate-map.html">Senate</a>
+                    <a style="background-color:white; color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="#">Senate</a>
                     <a style="background-color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="./2019-house-map.html">House</a>
 
                 </ul>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="about_us"><h4>Our Priority Bills</h4></div>
+            <div class="about_us"><h4>Our Scorecard Votes</h4></div>
             <div id="priorityVotes"></div>
             <div class="about_us">
                 <h4>About Our Scorecard</h4>
@@ -118,12 +118,13 @@
         <div class="infobox child">
             <button type='button' id='close' class='close'>&times;</button>
             <br>
-            <p class="child-header" > {{{full_name}}} ({{{party}}}) <br>District {{{current_district}}}
+            <p class="child-header" >{{{full_name}}} ({{{party}}})
+                <br><img src="{{{image}}}" class="img-fluid justify-content-center" alt="Photo">
+                <br>District {{{current_district}}}
             </p>
-            {{#if district_email}}<p style="text-align:center">{{{district_email}}}</p>{{/if}}
 
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-3 mt-1">
                     <div class="col-5"  style="text-align:center">
                         2019 Score<br> <span class="score" style="background-color: {{ scoreColor }}">{{{score_2019}}}%</span>
                     </div>
