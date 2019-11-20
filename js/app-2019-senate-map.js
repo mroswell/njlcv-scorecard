@@ -1,11 +1,11 @@
 let public_spreadsheet_url = "1q2r9zczACPL6XArWEAVBbSgEUd9u8v3upp6-1L84_OI";
-let senateLayer;
+let boundaryLayer;
 let NJDistricts = {};
 let app = {};
 let freeze = 0;
 let $sidebar = $("#sidebar");
-let legislatorLayer;
 let clickedMemberNumber;
+
 let vote_context =  {
     "priority_votes": [
         {
@@ -185,7 +185,7 @@ let geoStyle = function(data) {
         opacity: 0.9,
         color: "#fefefe",
         dashArray: "0",
-        fillOpacity: 0.8
+        fillOpacity: 0.7
     };
 };
 
@@ -216,8 +216,6 @@ function showInfo(sheet_data, tabletop) {
         lifetimeScoreColor = getColor(member.lifetime_score);
         member['lifetimeScoreColor'] = lifetimeScoreColor;
         console.log("member", member);
-        // member["normalScoreColor"] = getColor(member.score_2019);
-        // member["lifetimeScoreColor"] = getColor(member.lifetime_score);
         if (member.legis_id) {
         NJDistricts[member.legis_id] = member;
        }
@@ -241,7 +239,7 @@ function loadGeo() {
     );
     tileLayer.addTo(map);
 
-    senateLayer = L.geoJson(nj_legislative_boundary_map, {
+    boundaryLayer = L.geoJson(nj_legislative_boundary_map, {
         onEachFeature: onEachFeature,
         style: data => geoStyle(data)
     }).addTo(map);
@@ -278,7 +276,7 @@ function highlightFeature(e) {
         fillOpacity: 1
     });
     if (!freeze) {
-        html = app.infoboxTemplate(memberDetail);
+        let html = app.infoboxTemplate(memberDetail);
         $sidebar.html(html);
         if (!L.Browser.ie && !L.Browser.opera) {
             layer.bringToFront();
@@ -288,17 +286,20 @@ function highlightFeature(e) {
 
 function resetHighlight(e) {
     let layer = e.target
-    senateLayer.resetStyle(layer);
+    boundaryLayer.resetStyle(layer);
     // let districtNumber = NJDistricts.feature.properties.legis_id;
 }
 
 function mapMemberDetailClick(e) {
     freeze = 1;
-}
+    let boundary = e.target;
+    let legisId = parseInt(boundary.feature.properties.SLDUST);
+    // console.log("mapMemberDetailClick: ", memberNumber);
+    let member = memberDetailFunction(legisId);}
 
-function memberDetailFunction(memberNumber) {
-    clickedMemberNumber = memberNumber;
-    let districtDetail = NJDistricts[memberNumber];
+function memberDetailFunction(legisId) {
+    clickedMemberNumber = legisId;
+    let districtDetail = NJDistricts[legisId];
     districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
 
     let html = app.infoboxTemplate(districtDetail);
