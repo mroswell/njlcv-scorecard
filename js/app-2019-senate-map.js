@@ -171,7 +171,6 @@ function init() {
 }
 
 let geoStyle = function(data) {
-    console.log("hey!")
     console.log("data.properties", data.properties);
     // let legisId = data.properties.legis_id;
     let legisId = parseInt(data.properties.SLDUST);
@@ -260,7 +259,7 @@ function highlightFeature(e) {
     let layer = e.target;
     let legisId = parseInt(layer.feature.properties.SLDUST);
     let memberDetail = NJDistricts[legisId];
-    console.log(memberDetail)
+    console.log(memberDetail);
     // if(!memberDetail){
     //     console.log("No memberDetail");
     //     return;
@@ -270,10 +269,10 @@ function highlightFeature(e) {
 
     // memberDetail["scoreColor"] = memberDetail["normalScoreColor"];
     layer.setStyle({
-        weight: 5,
-        color: "#666",
+        weight: 3,
+        color: "#8e8e8e",
         dashArray: "",
-        fillOpacity: 1
+        fillOpacity: .4
     });
     if (!freeze) {
         let html = app.infoboxTemplate(memberDetail);
@@ -295,12 +294,14 @@ function mapMemberDetailClick(e) {
     let boundary = e.target;
     let legisId = parseInt(boundary.feature.properties.SLDUST);
     // console.log("mapMemberDetailClick: ", memberNumber);
-    let member = memberDetailFunction(legisId);}
+    let member = memberDetailFunction(legisId);
+}
 
 function memberDetailFunction(legisId) {
     clickedMemberNumber = legisId;
     let districtDetail = NJDistricts[legisId];
-    districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
+    console.log(NJDistricts[legisId],"***");
+     // districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
 
     let html = app.infoboxTemplate(districtDetail);
     $sidebar.html(html);

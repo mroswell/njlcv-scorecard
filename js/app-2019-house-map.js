@@ -1,9 +1,9 @@
 let public_spreadsheet_url = "1Y9gCf778XtztI-EipsewXCnvFWYrpoyyYLmkisQp9Hs";
-let NJDistricts = {};
+let legislatorLayer; //points
+let NJDistricts = {};  //data
 let app = {};
 let freeze = 0;
 let $sidebar = $("#sidebar");
-let legislatorLayer;
 let clickedMemberNumber;
 let vote_context =  {
     "priority_votes": [
@@ -168,8 +168,10 @@ function showInfo(sheet_data, tabletop) {
         console.log("member",member);
         member["normalScoreColor"] = getColor(member.score_2019);
         member["lifetimeScoreColor"] = getColor(member.lifetime_score);
-        NJDistricts[member.legis_id] = member;
-    });
+        // if (member.legis_id) {
+            NJDistricts[member.legis_id] = member;
+        // }
+           });
     loadGeo();
 }
 
@@ -243,17 +245,23 @@ function highlightFeature(e) {
 
 function resetHighlight(e) {
     legislatorLayer.resetStyle(e.target);
-    let districtNumber = legislatorLayer.feature.properties.legis_id;
+    // let districtNumber = legislatorLayer.feature.properties.legis_id;
 }
 
 function mapMemberDetailClick(e) {
     freeze = 1;
+    let point = e.target;
+    let legisId = point.feature.properties.legis_id;
+    console.log("LEGISID",legisId);
+    let member = memberDetailFunction(legisId)
 }
 
 function memberDetailFunction(memberNumber) {
     clickedMemberNumber = memberNumber;
+    console.log(clickedMemberNumber, NJDistricts,"-----");
     let districtDetail = NJDistricts[memberNumber];
-    districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
+    console.log(districtDetail,"...........");
+    // districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
 
     let html = app.infoboxTemplate(districtDetail);
     $sidebar.html(html);
