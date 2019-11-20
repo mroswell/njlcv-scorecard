@@ -209,11 +209,11 @@ $(document).ready(function() {
 });
 function showInfo(sheet_data, tabletop) {
     let scoreColor;
-    let lifetimeScoreColor
+    let lifetimeScoreColor;
     $.each(tabletop.sheets("nj-senate").all(), function(i, member) {
         scoreColor = getColor(member.score_2019);
         member['scoreColor'] = scoreColor;
-        lifestimeScoreColor = getColor(member.lifetime_score);
+        lifetimeScoreColor = getColor(member.lifetime_score);
         member['lifetimeScoreColor'] = lifetimeScoreColor;
         console.log("member", member);
         // member["normalScoreColor"] = getColor(member.score_2019);
