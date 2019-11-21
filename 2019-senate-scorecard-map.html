@@ -72,7 +72,7 @@
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
 <script type="text/javascript"  src="maps/legislator_points.js?5va15"></script>
-<script src="js/app-2019-senate-map.js?5"></script>
+<script src="js/app-2019-senate-map.js?7"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -95,11 +95,10 @@
     {{#each priority_votes}}
     <div class="entry priority_vote" id="bookmark_{{@index}}">
         <div class="body">
-            <h5><a href="#top">{{{bill_number}}}: {{bill_name}}</a></h5>
-            <p>{{{bill_description}}}</p>
+            <h5><a href="#top">{{{billnumber}}}: {{{billname}}}</a></h5>
+            <p>{{{billdescription}}}</p>
             <p><em>Stance: {{{stance}}}</em></p>
             <p><em>Outcome: {{{outcome}}}</em></p>
-            {{result}}
         </div>
     </div>
     {{/each}}
@@ -164,28 +163,28 @@
                 {{/if_eq}} <a href="#bookmark_11">12. Public Right of Access to Waterways and Beaches</a></p>
             <p>{{#if_eq bill13 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_13">13. Condemns EPA decision to withdraw from "Once-In-Always-In” (Clean Air Act)</a></p>
+                {{/if_eq}} <a href="#bookmark_12">13. Condemns EPA decision to withdraw from "Once-In-Always-In” (Clean Air Act)</a></p>
             <p>{{#if_eq bill14 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_14">14. Concerns Fracking Wastewater</a></p>
+                {{/if_eq}} <a href="#bookmark_13">14. Concerns Fracking Wastewater</a></p>
             <p>{{#if_eq bill15 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_15">15. Concerns Regulations for Interstate Natural Gas Pipelines</a></p>
+                {{/if_eq}} <a href="#bookmark_14">15. Concerns Regulations for Interstate Natural Gas Pipelines</a></p>
             <p>{{#if_eq bill16 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_16">16. Concerns Fracking Wastewater and the Delaware River Basin</a></p>
+                {{/if_eq}} <a href="#bookmark_15">16. Concerns Fracking Wastewater and the Delaware River Basin</a></p>
             <p>{{#if_eq bill17 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_17">17. Authorizes Prescribed Burning</a></p>
+                {{/if_eq}} <a href="#bookmark_16">17. Authorizes Prescribed Burning</a></p>
             <p>{{#if_eq bill18 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_18">18. Updates Global Warming Response Act</a></p>
+                {{/if_eq}} <a href="#bookmark_17">18. Updates Global Warming Response Act</a></p>
             <p>{{#if_eq bill19 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_19">19. Partial Disclosure Bill</a></p>
+                {{/if_eq}} <a href="#bookmark_18">19. Partial Disclosure Bill</a></p>
             <p>{{#if_eq bill20 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_20">15. Permanent Open Space Funding</a></p>
+                {{/if_eq}} <a href="#bookmark_19">20. Permanent Open Space Funding</a></p>
       <br>
         </div>
     </div>
