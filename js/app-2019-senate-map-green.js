@@ -245,24 +245,24 @@ function loadGeo() {
 }
 
 // get color depending on score value
-function getColor(score) {
-    return score === "NIO" ? '#fefefe' :
-        score > 99 ? '#82BC00' : //' '#4EAB07' :
-            score > 74 ? '#82e0c3' :
-                score > 49 ? '#FEF200' :
-                    score > 24 ? '#FDC300' :
-                        score > 0 ? '#FC8400' :
-                            'rgb(255,0,0)';
-}
-// get color depending on score value
 // function getColor(score) {
 //     return score === "NIO" ? '#fefefe' :
-//         score > 80 ? '#82BC00' : //' '#4EAB07' :
-//             score > 60 ? '#82e0c3' :
-//                 score > 40 ? '#FEF200' :
-//                     score > 20 ? '#FCA300' :
-//                         'rgb(255,0,0)';
+//         score > 99 ? '#82BC00' : //' '#4EAB07' :
+//             score > 74 ? '#82e0c3' :
+//                 score > 49 ? '#FEF200' :
+//                     score > 24 ? '#FDC300' :
+//                         score > 0 ? '#FC8400' :
+//                             'rgb(255,0,0)';
 // }
+// get color depending on score value
+function getColor(score) {
+    return score === "NIO" ? '#fefefe' :
+        score > 80 ? '#82BC00' : //' '#4EAB07' :
+            score > 60 ? '#82e0c3' :
+                score > 40 ? '#FEF200' :
+                    score > 20 ? '#FCA300' :
+                        'rgb(255,0,0)';
+}
 
 function highlightFeature(e) {
     let layer = e.target;
