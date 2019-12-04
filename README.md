@@ -1,4 +1,6 @@
 # NJ LCV Scorecard (in progress)
+https://mroswell.github.io/njlcv-scorecard/
+
 https://mroswell.github.io/njlcv-scorecard/2019-house-scorecard-map.html
 
 https://mroswell.github.io/njlcv-scorecard/2019-house-map.html
