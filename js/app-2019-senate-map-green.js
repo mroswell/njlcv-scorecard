@@ -81,7 +81,7 @@ let vote_context =  {
         {
             "billnumber": "S1073",
             "billname": "Stormwater Utilities",
-            "billdescription": "The Clean Stormwater and Flood Reduction Act authorizes local authorities to voluntarily establish stormwater utilities to dedicatedly fund necessary improvements to stormwater infra&shy;structure - with a focus on green infra&shy;structure to manage polluted stormwater. New Jersey’s water infra&shy;structure is antiquated and overburdened and the state currently faces a $16 billion funding deficit with few options for localities to address or fund these critical infrastructure improvements. Stormwater utilities are widely considered the most equitable and effective way to address stormwater management infrastructure needs and are used in over 40&nbsp;states.",
+            "billdescription": "The Clean Stormwater and Flood Reduction Act authorizes local authorities to voluntarily establish stormwater utilities to dedicatedly fund necessary improvements to stormwater infra&shy;structure - with a focus on green infra&shy;structure to manage polluted stormwater. NJ’s water infra&shy;structure is antiquated and overburdened and the state currently faces a $16B funding deficit with few options for localities to address or fund these critical infrastructure improvements. Stormwater utilities are widely considered the most equitable and effective way to address stormwater management infrastructure needs and are used in over 40&nbsp;states.",
             "outcome": "Passed by the Assembly (45-31), Passed by the Senate (25-11), Signed by the Governor P.L. 2019, c.42",
             "stance": "Support"
         },
