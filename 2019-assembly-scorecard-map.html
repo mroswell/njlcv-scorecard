@@ -96,7 +96,7 @@
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
 <script type="text/javascript"  src="maps/legislator_points.js?5va15"></script>
-<script src="js/app-2019-house-map-green.js?5"></script>
+<script src="js/app-2019-house-map-green.js?6"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -119,8 +119,8 @@
     {{#each priority_votes}}
     <div class="entry priority_vote" id="bookmark_{{@index}}">
         <div class="body">
-            <h5><a href="#top">{{{bill_number}}}: {{bill_name}}</a></h5>
-            <p>{{{bill_description}}}</p>
+            <h5><a href="#top">{{{billnumber}}}: {{billname}}</a></h5>
+            <p>{{{billdescription}}}</p>
             <p><em>Stance: {{{stance}}}</em></p>
             <p><em>Outcome: {{{outcome}}}</em></p>
             {{result}}

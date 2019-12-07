@@ -6,107 +6,107 @@ let freeze = 0;
 let $sidebar = $("#sidebar");
 let clickedMemberNumber;
 let vote_context =  {
-    "priority_votes": [
-        {
-            "bill_number": "A1929",
-            "bill_name": "Upholding Paris Climate Accord",
-            "bill_description": "Requires N.J. to join the U.S. Climate Alliance to uphold the Paris Climate Accord, lower greenhouse gas emissions, and address the threats posed by climate change in accordance with the goals established by the alliance. This action is in response to President Trump’s withdrawal from the Paris Accord.",
-            "outcome": "Passed by the Senate (26-12), Passed by the Assembly (49-23), signed by the Governor P.L. 2018, c. 3.",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A839",
-            "bill_name": "Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)",
-            "bill_description": "This bill would prohibit offshore oil or natural gas exploration, development, and production in State waters (i.e., within three miles offshore), and prohibit the leasing of tidal or submerged lands in State waters for the purposes of oil or natural gas exploration, development, or production. Additionally, the bill would prohibit the DEP from issuing any permits and approvals for any development associated with offshore drilling in State waters or outside State waters.",
-            "outcome": "Passed by the Assembly (72-1), Passed by the Senate unanimously, Signed by the Governor P.L. 2018, c. 7",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A1212",
-            "bill_name": "Participation in the Regional Greenhouse Gas Initiative",
-            "bill_description": "Requires New Jersey’s reentry into and full participation in the Regional Greenhouse Gas Initiative. RGGI is a cooperative effort to cap and reduce CO2 emissions from the electricity generating sector and requires the state to adopt rules and regulations to guide this process.",
-            "outcome": "Passed by the Assembly (48-24), Received in the Senate",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "ACR144",
-            "bill_name": "Condemns EPA decision to withdraw from \"Once-In-Always-In” Policy (Clean Air Act)",
-            "bill_description": "Resolution condemns the United States Environmental Protection Agency for its decision to withdraw the “once-in-always-in” policy under the Clean Air Act. “Major sources” of hazardous air pollutants (HAP) are now allowed to reclassify as an “area source” after acting to limit emissions, which would relieve these facilities of the requirements of stricter regulations.",
-            "outcome": "Passed by the Assembly (52-13-8), Passed by the Senate (26-12), Filed with the Secretary of State",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A1675",
-            "bill_name": "Authorizes Prescribed Burning",
-            "bill_description": "Authorizes prescribed burning for certain resources, requires the DEP to develop and administer a plan on burning wildland fire fuels for a reasonable fee, authorizes the DEP to assess against a landowner, addresses liability issues with prescribed burning, and allows the DEP to adopt regulations necessary to implement the bill.",
-            "outcome": "Passed by both chambers unanimously, Signed by the Governor P.L. 2018, c. 107",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A3723",
-            "bill_name": "Clean Renewable Energy Bill",
-            "bill_description": "The landmark Clean Renewable Energy Bill reestablished New Jersey’s commitment to addressing the climate crisis and being a national leader in the clean energy economy by requiring 50% of the state’s energy to come from clean renewable energy by 2030. This bill catalyzes offshore wind development, kick starts a community solar pilot program, establishes aggressive annual energy efficiency goals, modifies the current solar market, and sets energy storage benchmarks.",
-            "outcome": "Passed by the Assembly (51-20-2), Passed by the Senate (29-8), Signed by the Governor P.L. 2018, c.17",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A2014",
-            "bill_name": "Automatic Voter Registration",
-            "bill_description": "This bill requires the New Jersey Motor Vehicle Commission (MVC) to automatically register or update a person’s voter registration as part of the process of applying for or renewing a driver’s license.",
-            "outcome": "Passed by the Assembly (50-23), Passed by the Senate (24-13), Signed by the Governor P.L. 2018, c.6",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A-2694",
-            "bill_name": "Stormwater Utilities",
-            "bill_description": "The Clean Stormwater and Flood Reduction Act authorizes local authorities to volun&shy;tarily establish stormwater utilities to dedicatedly fund necessary improvements to stormwater infrastructure, with a focus on green infrastructure to manage polluted stormwater. NJ’s water infrastructure is antiquated and overburdened and the state currently faces a $16B funding deficit with few options for localities to address fund these critical infrastructure improvements. Stormwater utilities are widely considered the most equitable and effective way to address stormwater management infra&shy;structure needs and are used in over 40 states.",
-            "outcome": "Passed by the Senate (25-11), Passed by the Assembly (45-31), Signed by the Governor P.L.2019, c.42",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A1371",
-            "bill_name": "Electric Vehicle Charging Infrastructure",
-            "bill_description": "Encourages municipalities to plan for the development of electric vehicle charging infrastructure at appropriate locations. By improving the infrastructure for electric vehicle charging, New Jersey can uphold the goals in the Energy Master Plan to promote and encourage the use of electric vehicles and reduce the emissions from our transportation sector.",
-            "outcome": "Passed by the Assembly (67-4-1), Passed by the Senate (26-4)",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "A4821",
-            "bill_name": "Updated Global Warming Response Act",
-            "bill_description": "This bill establishes new timeframes for the completion of the Legislature’s directives in the Global Warming Response Act. Specifically, with this update, the DEP is now required to adopt rules and promulgate regulations to meet the 80% economy-wide emissions reductions from 2006 levels by 2050 outlined in the original GWRA due to an added mandate that ensures action. This bill also requires the State to develop a comprehensive strategy and promulgate regulations to reduce short-lived climate pollutants in the State including black carbon.",
-            "outcome": "Passed by Senate (29-6), Passed by the Assembly (66-8-1), signed by the Governor P.L. 2019, c.197",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "S150",
-            "bill_name": "Partial Disclosure Bill",
-            "bill_description": "This bill requires C(4) non profits who are involved in policy and lobbying work to disclose their donors, while keeping big, well fueled corporations and trade organizations in the dark by requiring no new disclosure standards. This bill would severely impact nonprofits ability to fight against corporate interests.",
-            "outcome": "Passed by the Assembly (68-0-4), Passed by the Senate unanimously, Signed by the Governor P.L. 2019, c.124",
-            "stance": "Oppose"
-        },
-        {
-            "bill_number": "S2920",
-            "bill_name": "Permanent Open Space Funding",
-            "bill_description": "Establishes the funding allocations for the constitutional dedication of Corporation Business Tax (CBT) revenues for the State’s open space, farmland, and historic preservation programs for fiscal year 2020 and thereafter. For Fiscal Year 2020 and thereafter, this annual dedication is increased from four to six percent.",
-            "outcome": "Passed by both chambers unanimously, Signed by the Governor P.L. 2019, c. 136",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "S-2534",
-            "bill_name": "Prohibits Smoking at Public Beaches",
-            "bill_description": "Extends the “New Jersey Smoke-Free Air Act” to prohibit smoking at public beaches and parks. Public health is a top priority in New Jersey and this revision allows up to 15% of total area to be designated by the municipality or county by ordinance or resolution smoking area.",
-            "outcome": "Passed by the Senate (34-1), Passed by the Assembly (66-1-2), Signed by the Governor P.L 2018, c.64",
-            "stance": "Support"
-        },
-        {
-            "bill_number": "S-1074",
-            "bill_name": "Public Right of Access to Waterways and Beaches",
-            "bill_description": "Protects New Jerseyan\’s right to access the state’s natural resources including beaches and waterfronts. New Jersey is known for its beautiful 130-mile shore line and is an essential part of our states cultural identity and economy. This bill will ensure New Jersey residents will have the ability to enjoy these natural amenities and will not be denied access by developers and major property owners.",
-            "outcome": "Passed by the Senate (36-4), Passed by the Assembly (71-7-2), Signed by the Governor P.L. 2019, c.81",
-            "stance": "Support"
-        }
-    ]
-
+    "priority_votes":
+        [
+            {
+                "billnumber": "A1929",
+                "billname": "Upholds Paris Climate Accord",
+                "billdescription": "Requires New Jersey to join the U.S. Climate Alliance to uphold the Paris Climate Accord, lower greenhouse gas emissions, and address the threats posed by climate change in accordance with the goals established by the alliance. This action is in response to President Trump’s withdrawal from the Paris Accord.",
+                "outcome": "Passed by the Senate (26-12), Passed by the Assembly (49-23), Signed by the Governor P.L. 2018, c. 3.",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A839",
+                "billname": "Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)",
+                "billdescription": "This bill prohibits offshore oil or natural gas exploration, development, and production in State waters (i.e., within three miles offshore), and prohibits the leasing of tidal or submerged lands in State waters for the purposes of oil or natural gas exploration, development, or production. Additionally, the bill would prohibit the DEP from issuing any permits and approvals for any development associated with offshore drilling in State waters or outside State waters.",
+                "outcome": "Passed by the Assembly (72-1), Passed by the Senate unanimously, Signed by the Governor P.L. 2018, c. 7",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A1212",
+                "billname": "Participation in the Regional Greenhouse Gas Initiative",
+                "billdescription": "Requires New Jersey’s reentry into and full participation in the Regional Greenhouse Gas Initiative. RGGI is a cooperative effort to cap and reduce CO2 emissions from the electricity generating sector and requires the state to adopt rules and regulations to guide this process.",
+                "outcome": "Passed by the Assembly (48-24), Received in the Senate",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "ACR144",
+                "billname": "Condemns EPA decision to withdraw from \"Once-In-Always-In” Policy (Clean Air Act)",
+                "billdescription": "Resolution condemns the United States Environmental Protection Agency for its decision to withdraw the “once-in-always-in” policy under the Clean Air Act. “Major sources” of hazardous air pollutants (HAP) are now allowed to reclassify as an “area source” after acting to limit emissions, which would relieve these facilities of the requirements of stricter regulations.",
+                "outcome": "Passed by the Assembly (52-13-8), Passed by the Senate (26-12), Filed with the Secretary of State",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A1675",
+                "billname": "Authorizes Prescribed Burning",
+                "billdescription": "Authorizes prescribed burning for certain resources, requires the DEP to develop and administer a plan on burning wildland fire fuels for a reasonable fee, authorizes the DEP to assess against a landowner, addresses liability issues with prescribed burning, and allows the DEP to adopt regulations necessary to implement the bill.",
+                "outcome": "Passed by both chambers unanimously, Signed by the Governor P.L. 2018, c. 107",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A3723",
+                "billname": "Clean Renewable Energy Bill",
+                "billdescription": "The landmark Clean Renewable Energy Bill reestablishes New Jersey’s commitment to addressing the climate crisis and being a national leader in the clean energy economy by requiring 50% of the state’s energy to come from clean renewable energy by 2030. This bill catalyzes offshore wind development, kick starts a community solar pilot program, establishes aggressive annual energy efficiency goals, modifies the current solar market, and sets energy storage benchmarks.",
+                "outcome": "Passed by the Assembly (51-20-2), Passed by the Senate (29-8), Signed by the Governor P.L. 2018, c.17",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A2014",
+                "billname": "Automatic Voter Registration",
+                "billdescription": "This bill requires the New Jersey Motor Vehicle Commission (MVC) to automatically register or update a person’s voter registration as part of the process of applying for or renewing a driver’s license.",
+                "outcome": "Passed by the Assembly (50-23), Passed by the Senate (24-13), Signed by the Governor P.L. 2018, c.6",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A2694",
+                "billname": "Stormwater Utilities",
+                "billdescription": "The Clean Stormwater and Flood Reduction Act authorizes local authorities to voluntarily establish stormwater utilities to dedicatedly fund necessary improvements to stormwater infra&shy;structure - with a focus on green infrastructure to manage polluted stormwater. NJ’s water infra&shy;structure is antiquated and overburdened and the state currently faces a $16B funding deficit with few options for localities to address or fund these critical infrastructure improvements. Stormwater utilities are widely considered the most equitable and effective way to address stormwater management infra&shy;structure needs and are used in over 40&nbsp;states.",
+                "outcome": "Passed by the Senate (25-11), Passed by the Assembly (45-31), Signed by the Governor P.L.2019, c.42",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A1371",
+                "billname": "Electric Vehicle Charging Infrastructure",
+                "billdescription": "Encourages municipalities to plan for the development of electric vehicle charging infrastructure at appropriate locations. By improving the infrastructure for electric vehicle charging, New Jersey can uphold the goals in the Energy Master Plan to promote and encourage the use of electric vehicles and reduce the emissions from our transportation sector.",
+                "outcome": "Passed by the Assembly (67-4-1), Passed by the Senate (26-4)",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "A4821",
+                "billname": "Updated Global Warming Response Act",
+                "billdescription": "This bill establishes new timeframes for the completion of the Legislature’s directives in the Global Warming Response Act. Specifically, with this update, the DEP is now required to adopt rules and promulgate regulations to meet the 80% economy-wide emissions reductions from 2006 levels by 2050 outlined in the original GWRA due to an added mandate that ensures action. This bill also requires the State to develop a comprehensive strategy and promulgate regulations to reduce short-lived climate pollutants in the State including black carbon.",
+                "outcome": "Passed by Senate (29-6), Passed by the Assembly (66-8-1), Signed by the Governor P.L. 2019, c.197",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "S150",
+                "billname": "Partial Disclosure Bill",
+                "billdescription": "This bill requires C(4) non-profits who are involved in policy and lobbying work to disclose their donors, while keeping big, well fueled corporations and trade organizations in the dark by requiring no new disclosure standards. This bill would severely impact non-profits' ability to fight against corporate interests.",
+                "outcome": "Passed by the Assembly (68-0-4), Passed by the Senate unanimously, Signed by the Governor P.L. 2019, c.124",
+                "stance": "Oppose"
+            },
+            {
+                "billnumber": "S2920",
+                "billname": "Permanent Open Space Funding",
+                "billdescription": "Establishes the funding allocations for the constitutional dedication of Corporation Business Tax (CBT) revenues for the State’s open space, farmland, and historic preservation programs for fiscal year 2020 and thereafter. For Fiscal Year 2020 and thereafter, this annual dedication is increased from four to six percent.",
+                "outcome": "Passed by both chambers unanimously, Signed by the Governor P.L. 2019, c. 136",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "S2534",
+                "billname": "Prohibits Smoking at Public Beaches",
+                "billdescription": "Extends the “New Jersey Smoke-Free Air Act” to prohibit smoking at public beaches and parks. Public health is a top priority in New Jersey and this revision allows up to 15% of total area to be designated by the municipality or county by ordinance or resolution as a smoking area.",
+                "outcome": "Passed by the Senate (34-1), Passed by the Assembly (66-1-2), Signed by the Governor P.L 2018, c.64",
+                "stance": "Support"
+            },
+            {
+                "billnumber": "S1074",
+                "billname": "Public Right of Access to Waterways and Beaches",
+                "billdescription": "Protects New Jerseyans' right to access the state’s natural resources including beaches and waterfronts. New Jersey is known for its beautiful 130-mile shore line, which is an essential part of our states cultural identity and economy. This bill will ensure New Jersey residents will have the ability to enjoy these natural amenities and will not be denied access by developers and major property owners.",
+                "outcome": "Passed by the Senate (36-4), Passed by the Assembly (71-7-2), Signed by the Governor P.L. 2019, c.81",
+                "stance": "Support"
+            }
+        ]
 };
 
 let map = L.map("map", {
