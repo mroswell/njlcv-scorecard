@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>NJ League of Conservation Voters | General Assembly Scorecard</title>
+    <title>NJ League of Conservation Voters | Legislative Scorecard 2019</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Pragati+Narrow|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
     <link rel="stylesheet" href="css/style.css?9">
+    <link rel="stylesheet" href="css/overrides.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,52 +19,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.7/handlebars.js" integrity="sha256-3kxM38zABJY692X6ViIlt9FsBimhck0ZlsLtuA7R+0Y=" crossorigin="anonymous"></script>
 </head>
 <body>
+<header class="scorecard-header">
+	<section class="header-container">
+		<a class="scorecard-branding" href="https://www.njlcv.org" title="New Jersey League of Conservation Voters">
+			<img src="images/njlcv-logo.svg">
+		</a>
+		<h2>Legislative Scorecard 2019</h2>
+	</section>
+</header>
 <div class="feature-wrapper pt-5 pb-5 mt-5 mt-lg-0">
     <!-- wides go inside wrapper but outside outer and inner -->
     <div class="container" id="top">
-        <div class="row">
-            <div class="col-5">
-                <h2>NJLCV 2019 Scorecard
-                    </br> <small  class="text-muted"></small>
-                </h2>
-            </div>
-
-            <div class="col-7">
-                <div class='my-legend float-right'>
-                    <!--div class='legend-title'>Legend:</div-->
-                    <div class='legend-scale'>
-                        <svg height="62" version="1.1" width="600" xmlns="http://www.w3.org/2000/svg"  style="overflow: hidden; position: relative; left: -0.5px;" data-type="plot" data-index="0">
-                            <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
-                            <text x="7" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;" font-weight="600">
-                                <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Legend:</tspan>
-                            </text>
-                            <circle cx="90" cy="20" r="7" fill="#ff0000" style="-webkit-tap-highlight-color: rgba(255, 0, 0, 0);" data-type="elem" data-index="0" data-hidden="0"></circle>
-                            <text x="101" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;"font-weight="600">
-                                <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0&ndash;20%</tspan>
-                            </text>
-                            <circle cx="162" cy="20" r="7" fill="#FCA300" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-type="elem" data-index="1" data-hidden="0"></circle>
-                            <text x="172" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;" font-weight="600">
-                                <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(253, 195, 0, 0);">21&ndash;40%</tspan>
-                            </text>
-                            <circle cx="253" cy="20" r="7" fill="#FEF200" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-type="elem" data-index="2" data-hidden="0"></circle>
-                            <text x="265" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;" font-weight="600">
-                                <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">41&ndash;60%</tspan>
-                            </text>
-                            <circle cx="352" cy="20" r="7" fill="#82e0c3" style="-webkit-tap-highlight-color: rgba(255, 0, 0, 0);" data-type="elem" data-index="0" data-hidden="0"></circle>
-                            <text x="364" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;"  font-weight="600">
-                                <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">61&ndash;80%</tspan>
-                            </text>
-                            <circle cx="450" cy="20" r="7" fill="#4eab07" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " data-type="elem" data-index="1" data-hidden="0"></circle>
-                            <text x="461" y="20" stroke="none" fill="#343434" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 12px;" font-weight="600">
-                                <tspan dy="4.25" style="-webkit-tap-highlight-color: rgba(253, 195, 0, 0);">81&ndash;100%</tspan>
-                            </text>
-                        </svg>
-                    </div>
-                    <!--<div class='legend-source'>Source: <a href="#link to source">Name of source</a></div>-->
-                </div>
-            </div>
-        </div>
-        <div class="row mt-2 mb-2">
+        <div class="row mt-2 mb-2 navigation-buttons">
             <div class="col-4 default-text">
                 <ul class="nav nav-pills flex-column flex-sm-row">
                     <a style="background-color:white; color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="2019-senate-scorecard-map.html">Senate</a>
@@ -72,14 +39,22 @@
                 </ul>
             </div>
         </div>
-
-        <div class="row">
-            <div id="sidebar" class="col-5 default-text">
-            </div>
-            <div id="map" class="col-7">
+        <div class="row" id="sidebar-and-map">
+            <div id="sidebar" class="default-text"></div>
+            <div id="map-and-legend">
+            	<div id="map"></div>
+            	<div id="map-legend">
+	            	<p class="map-legend">Legend:
+		            	<span class="legend-item quintile-1">0&ndash;20%</span>
+						<span class="legend-item quintile-2">21&ndash;40%</span>
+						<span class="legend-item quintile-3">41&ndash;60%</span>
+						<span class="legend-item quintile-4">61&ndash;80%</span>
+						<span class="legend-item quintile-5">81&ndash;100%</span>
+	            	</p>
+            	</div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="lower-content">
             <div class="about_us"><h4>Our Scorecard Votes</h4></div>
             <div id="priorityVotes"></div>
             <div class="about_us">
