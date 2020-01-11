@@ -1,5 +1,17 @@
 /* Header Stuff */
 
+.fa-facebook, .fa-facebook-square {
+  color: #3b5998
+}
+.fa-twitter, .fa-twitter-square {
+  color: #00aced
+}
+
+.social-icons {
+  position: absolute;
+  top: 16px;
+  right:18px;
+}
 .scorecard-header .header-container {
   align-items:center;
   display:flex;
@@ -20,14 +32,17 @@
 
 .scorecard-branding img {
   height:140px;
-  width:280px;
+  width:264px;
 }
 
 header.scorecard-header h2 {
-  font-size:24px;
+  font-size:38px;
   margin:0;
-  padding:0 20px 24px;
+  padding:0 20px 22px;
   text-align:center;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+  color: #6CB503;
 }
 
 
@@ -110,7 +125,7 @@ body .feature-wrapper {
 }
 
 #map-legend {
-  margin:10px auto 0;
+  margin:0 auto 4px;
   width:100%;
 }
 
@@ -121,7 +136,7 @@ body .feature-wrapper {
   font-weight:700;
   line-height:20px;
   margin:unset;
-  text-align:right;
+  text-align:center;
 }
 
 .map-legend .legend-item {
@@ -170,28 +185,29 @@ body .feature-wrapper {
 
 
 @media (min-width:600px) {
-  
-  header.scorecard-header h2 {font-size:32px;}
 
-  
+  header.scorecard-header h2 {font-size:38px;}
+
+
   /* Lower Content */
 
   #priorityVotes .entry {width:calc(50% - 24px);}
-  
+
 }
 
 
 @media (min-width:768px) {
-  
+
   .scorecard-header .header-container {
     align-items:flex-end;
     flex-direction:row;
     justify-content:left;
+    position: relative
   }
-  
+
   header.scorecard-header h2 {text-align:left;}
-  
-  
+
+
   /* Sidebar & Map */
 
   #sidebar-and-map {
@@ -209,21 +225,21 @@ body .feature-wrapper {
     flex:0 auto;
     width:430px;
   }
-  
+
 }
 
 
 @media (min-width:900px) {
-  
+
   /* Sidebar & Map */
 
   #sidebar-and-map #sidebar {width:calc(100% - 520px);}
   #sidebar-and-map #map-and-legend {width:500px;}
-  
-  
+
+
   /* Lower Content */
 
   #priorityVotes .entry {width:calc(100%/3 - 24px);}
-  
-  
+
+
 }
