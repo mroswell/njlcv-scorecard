@@ -107,7 +107,7 @@ body .feature-wrapper {
 
 #sidebar .entry.parent {
   float:unset;
-  height:100% !important;
+  /*height:100% !important;*/
   margin:0 0 20px;
 }
 
@@ -146,7 +146,7 @@ body .feature-wrapper {
 
 .map-legend .legend-item:before {
   background:#f00;
-  border-radius:7px;
+  border-radius:0;
   content:"";
   display:block;
   height:14px;
@@ -156,10 +156,8 @@ body .feature-wrapper {
   width:14px;
 }
 
-.map-legend .quintile-2:before {background:#fca300;}
-.map-legend .quintile-3:before {background:#fef200;}
-.map-legend .quintile-4:before {background:#82e0c3;}
-.map-legend .quintile-5:before {background:#4eab07;}
+.map-legend .yes:before {background:#4d9221;}
+.map-legend .no:before {background:#c51b7d;}
 
 
 /* Lower Content */
