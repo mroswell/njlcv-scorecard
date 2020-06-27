@@ -1,10 +1,33 @@
-let public_spreadsheet_url = "1DhG_oFKYEjKkZ28OUajNNFf6UCLQc_ExNR7wwG6rdvQ";
 let legislatorLayer; //points
 let NJDistricts = {};  //data
 let app = {};
 let freeze = 0;
 let $sidebar = $("#sidebar");
 let clickedMemberNumber;
+
+
+let SHEET_ID = '1DhG_oFKYEjKkZ28OUajNNFf6UCLQc_ExNR7wwG6rdvQ';
+let API_KEY = 'AIzaSyCMTnugKsNlKhajpPTm37IlHFTd_z297Eo';
+
+function fetchSheet({ spreadsheetId, sheetName, apiKey, complete }) {
+    let url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
+    return fetch(url).then(response =>
+        response.json().then(result => {
+            let data = Papa.parse(Papa.unparse(result.values), { header: true });
+            complete(data);
+        })
+    );
+}
+
+function init() {
+    fetchSheet({
+        spreadsheetId: SHEET_ID,
+        sheetName: 'nj-assembly',
+        apiKey: API_KEY,
+        complete: showInfo
+    });
+}
+
 let vote_context =  {
     "priority_votes":
         [
@@ -115,18 +138,6 @@ let map = L.map("map", {
     minZoom: 8
 }).setView([40.09, -74.6728], 7);
 
-// var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
-
-
-function init() {
-    Tabletop.init({
-        key: public_spreadsheet_url,
-        callback: showInfo,
-        // simpleSheet: true,
-        parseNumbers: true
-    });
-}
-
 let geoStyle = function(data) {
     console.log("data.properties", data.properties);
     let legisId = data.properties.legis_id;
@@ -163,8 +174,9 @@ $(document).ready(function() {
 
 
 });
-function showInfo(sheet_data, tabletop) {
-    $.each(tabletop.sheets("nj-assembly").all(), function(i, member) {
+function showInfo(results) {
+    let data = results.data;
+    $.each(data, function(i, member) {
         console.log("member",member);
         member["normalScoreColor"] = getColor(member.score_2019);
         member["lifetimeScoreColor"] = getColor(member.lifetime_score);

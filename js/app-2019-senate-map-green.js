@@ -6,6 +6,29 @@ let freeze = 0;
 let $sidebar = $("#sidebar");
 let clickedMemberNumber;
 
+
+let SHEET_ID = '1q2r9zczACPL6XArWEAVBbSgEUd9u8v3upp6-1L84_OI';
+let API_KEY = 'AIzaSyCMTnugKsNlKhajpPTm37IlHFTd_z297Eo';
+
+function fetchSheet({ spreadsheetId, sheetName, apiKey, complete }) {
+    let url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
+    return fetch(url).then(response =>
+        response.json().then(result => {
+            let data = Papa.parse(Papa.unparse(result.values), { header: true });
+            complete(data);
+        })
+    );
+}
+
+function init() {
+    fetchSheet({
+        spreadsheetId: SHEET_ID,
+        sheetName: 'nj-senate',
+        apiKey: API_KEY,
+        complete: showInfo
+    });
+}
+
 let vote_context =  {
     "priority_votes": [
         {
@@ -157,18 +180,6 @@ let map = L.map("map", {
     minZoom: 8
 }).setView([40.09, -74.6728], 7);
 
-// var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
-
-
-function init() {
-    Tabletop.init({
-        key: public_spreadsheet_url,
-        callback: showInfo,
-        // simpleSheet: true,
-        parseNumbers: true
-    });
-}
-
 let geoStyle = function(data) {
     console.log("data.properties", data.properties);
     // let legisId = data.properties.legis_id;
@@ -205,19 +216,18 @@ $(document).ready(function() {
 
 
 });
-function showInfo(sheet_data, tabletop) {
+function showInfo(results) {
+    let data = results.data
     let scoreColor;
     let lifetimeScoreColor;
-    $.each(tabletop.sheets("nj-senate").all(), function(i, member) {
+    $.each(data, function(i, member) {
         scoreColor = getColor(member.score_2019);
         member['scoreColor'] = scoreColor;
         lifetimeScoreColor = getColor(member.lifetime_score);
         member['lifetimeScoreColor'] = lifetimeScoreColor;
-        console.log("member", member);
         if (member.legis_id) {
         NJDistricts[member.legis_id] = member;
        }
-        console.log(NJDistricts);
     });
     loadGeo();
 }
@@ -267,7 +277,7 @@ function highlightFeature(e) {
     let layer = e.target;
     let legisId = parseInt(layer.feature.properties.SLDUST);
     let memberDetail = NJDistricts[legisId];
-    console.log(memberDetail);
+    // console.log(memberDetail);
     // if(!memberDetail){
     //     console.log("No memberDetail");
     //     return;
