@@ -181,11 +181,8 @@ let map = L.map("map", {
 }).setView([40.09, -74.6728], 7);
 
 let geoStyle = function(data) {
-    console.log("data.properties", data.properties);
     // let legisId = data.properties.legis_id;
     let legisId = parseInt(data.properties.SLDUST);
-    console.log("---------legisId", legisId);
-
     let scoreColor = getColor( NJDistricts[legisId].score_2019);
 
     return {
@@ -253,17 +250,6 @@ function loadGeo() {
     }).addTo(map);
 }
 
-// get color depending on score value
-// function getColor(score) {
-//     return score === "NIO" ? '#fefefe' :
-//         score > 99 ? '#82BC00' : //' '#4EAB07' :
-//             score > 74 ? '#82e0c3' :
-//                 score > 49 ? '#FEF200' :
-//                     score > 24 ? '#FDC300' :
-//                         score > 0 ? '#FC8400' :
-//                             'rgb(255,0,0)';
-// }
-// get color depending on score value
 function getColor(score) {
     return score === "NIO" ? '#fefefe' :
         score > 80 ? '#82BC00' : //' '#4EAB07' :
@@ -277,15 +263,7 @@ function highlightFeature(e) {
     let layer = e.target;
     let legisId = parseInt(layer.feature.properties.SLDUST);
     let memberDetail = NJDistricts[legisId];
-    // console.log(memberDetail);
-    // if(!memberDetail){
-    //     console.log("No memberDetail");
-    //     return;
-    // }
 
-    // clickedMemberNumber = legisId;
-
-    // memberDetail["scoreColor"] = memberDetail["normalScoreColor"];
     layer.setStyle({
         weight: 3,
         color: "#8e8e8e",
@@ -311,15 +289,12 @@ function mapMemberDetailClick(e) {
     freeze = 1;
     let boundary = e.target;
     let legisId = parseInt(boundary.feature.properties.SLDUST);
-    // console.log("mapMemberDetailClick: ", memberNumber);
     let member = memberDetailFunction(legisId);
 }
 
 function memberDetailFunction(legisId) {
     clickedMemberNumber = legisId;
     let districtDetail = NJDistricts[legisId];
-    console.log(NJDistricts[legisId],"***");
-     // districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
 
     let html = app.infoboxTemplate(districtDetail);
     $sidebar.html(html);

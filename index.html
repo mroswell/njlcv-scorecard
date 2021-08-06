@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>NJ League of Conservation Voters | Legislative Scorecard 2019</title>
-    <meta charset="utf-8"/>
+    <title>New Jersey League of Conservation Voters | Legislative Scorecard 2019</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://scorecard.njlcv.org">
+    <meta property="og:description" content="New Jersey LCV’s Environmental Scorecard rates each member of the New Jersey Senate and Assembly on their conservation record and actions taken to protect the environment in the Garden State. The Scorecard holds state legislators accountable for their votes on open space, water and air issues that affect families across our state.">
+    <meta property="og:title" content="New Jersey League of Conservation Voters | Legislative Scorecard 2019">
     <meta property="og:image" content="http://scorecard.njlcv.org/images/NJLCV_Social_Post.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Pragati+Narrow|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css?9">
+    <link rel="stylesheet" href="css/style.css?11">
     <link rel="stylesheet" href="css/overrides.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -28,7 +32,8 @@
 			<img src="images/njlcv-logo.svg">
 		</a>
       <div class="social-icons">
-          <i class="fab fa-twitter-square fa-2x"></i>
+          <a href="https://twitter.com/intent/tweet?text=Big%20news!%20%40NJLCV%27s%202019%20Legislative%20Scorecard%20is%20now%20even%20easier%20to%20use.%20The%202018-2019%20legislature%20was%20the%20most%20environmentally%20productive%20in%20over%20a%20decade.%20See%20how%20your%20lawmakers%20scored%20on%20the%20%23NJLCVScore%3A&url=https%3A%2F%2Fscorecard.njlcv.org%2F" target="_blank">
+              <i class="fab fa-twitter-square fa-2x"></i></a>
           <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fscorecard.njlcv.org&amp;t=New%20Jersey%20League%20of%20Conservation%20Voters%20Scorecard" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
       </div>
 		<h2>Legislative Scorecard 2019</h2>
@@ -49,7 +54,6 @@
         <div class="row" id="sidebar-and-map">
             <div id="sidebar" class="default-text"></div>
             <div id="map-and-legend">
-            	<div id="map"></div>
             	<div id="map-legend">
 	            	<p class="map-legend">Legend:
 		            	<span class="legend-item quintile-1">0&ndash;20%</span>
@@ -59,6 +63,7 @@
 						<span class="legend-item quintile-5">81&ndash;100%</span>
 	            	</p>
             	</div>
+		<div id="map"></div>
             </div>
         </div>
         <div class="row" id="lower-content">

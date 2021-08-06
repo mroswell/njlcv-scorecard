@@ -139,10 +139,7 @@ let map = L.map("map", {
 }).setView([40.09, -74.6728], 7);
 
 let geoStyle = function(data) {
-    console.log("data.properties", data.properties);
     let legisId = data.properties.legis_id;
-    console.log("---------legisId", legisId);
-
     let scoreColor = getColor( NJDistricts[legisId].score_2019);
 
     return {
@@ -178,6 +175,7 @@ function showInfo(results) {
     let data = results.data;
     $.each(data, function(i, member) {
         console.log("member",member);
+
         member["normalScoreColor"] = getColor(member.score_2019);
         member["lifetimeScoreColor"] = getColor(member.lifetime_score);
         // if (member.legis_id) {
@@ -223,16 +221,6 @@ function loadGeo() {
 }
 
 // get color depending on score value
-// function getColor(score) {
-//     return score === "NIO" ? '#fefefe' :
-//         score > 99 ? '#82BC00' : //' '#4EAB07' :
-//             score > 74 ? '#82e0c3' :
-//                 score > 49 ? '#FEF200' :
-//                     score > 24 ? '#FDC300' :
-//                         score > 0 ? '#FC8400' :
-//                             'rgb(255,0,0)';
-// }
-// get color depending on score value
 function getColor(score) {
     return score === "NIO" ? '#fefefe' :
         score > 80 ? '#82BC00' : //' '#4EAB07' :
@@ -273,16 +261,12 @@ function mapMemberDetailClick(e) {
     freeze = 1;
     let point = e.target;
     let legisId = point.feature.properties.legis_id;
-    console.log("LEGISID",legisId);
     let member = memberDetailFunction(legisId)
 }
 
 function memberDetailFunction(memberNumber) {
     clickedMemberNumber = memberNumber;
-    console.log(clickedMemberNumber, NJDistricts,"-----");
     let districtDetail = NJDistricts[memberNumber];
-    console.log(districtDetail,"...........");
-    // districtDetail["scoreColor"] = districtDetail["normalScoreColor"];
 
     let html = app.infoboxTemplate(districtDetail);
     $sidebar.html(html);

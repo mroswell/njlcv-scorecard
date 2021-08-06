@@ -294,7 +294,7 @@ p.close {
     color: black;
     margin-top: 7px;
     display: block;
-    border-radius: 80px;
+    border-radius: 40px;
     text-align: center;
     padding: 8px 4px;
 }
@@ -311,101 +311,6 @@ span > i {
     vertical-align: sub;
     font-weight: 900;
     color: #E53935; /* #E03131; /* red #C40015 */
-}
-
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px) {
-    .container {
-        padding-right: 0;
-        padding-left: 0;
-    }
-    .entry {width:282px}
-    .entry.parent, .entry-default-text {
-        padding:8px;
-    }
-    .entry-default-text {
-        width: 230px;
-    }
-
-    #sidebar {
-        padding-left:1px;
-    }
-
-    #map {
-        float: right;
-    }
-
-    .feature-wrapper.mt-5, .my-5 {
-        margin-top:2px !important;
-    }
-}
-
-
-/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 667px)
-and (-webkit-min-device-pixel-ratio: 2) {
-    .container {
-        padding-right: 2;
-        padding-left: 2;
-    }
-    .entry {width:282px}
-    .entry.parent, .entry-default-text {
-        padding:8px;
-    }
-    .entry-default-text {
-        width: 230px;
-    }
-
-    #sidebar {
-        padding-left:1px;
-    }
-
-    #map {
-        float: right;
-    }
-
-    .feature-wrapper.mt-5, .my-5 {
-        margin-top:2px !important;
-    }
-}
-
-
-/* ----------- iPhone 6+, 7+ and 8+ ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 414px)
-and (max-device-width: 736px)
-and (-webkit-min-device-pixel-ratio: 3) {
-    .container {
-        padding-right: 2;
-        padding-left: 2;
-    }
-    .entry {width:282px}
-    .entry.parent, .entry-default-text {
-        padding:8px;
-    }
-    .entry-default-text {
-        width: 230px;
-    }
-
-    #sidebar {
-        padding-left:1px;
-    }
-
-    #map {
-        float: right;
-    }
-
-    .feature-wrapper.mt-5, .my-5 {
-        margin-top:2px !important;
-    }
 }
 
 .circle{
