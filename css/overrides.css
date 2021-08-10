@@ -156,6 +156,7 @@ body .feature-wrapper {
   width:14px;
 }
 
+.map-legend .quintile-1:before {background:#E53935;}
 .map-legend .quintile-2:before {background:#fca300;}
 .map-legend .quintile-3:before {background:#fef200;}
 .map-legend .quintile-4:before {background:#82e0c3;}

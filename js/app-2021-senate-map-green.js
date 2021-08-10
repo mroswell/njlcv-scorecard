@@ -5,8 +5,7 @@ let freeze = 0;
 let $sidebar = $("#sidebar");
 let clickedMemberNumber;
 
-
-let SHEET_ID = '1q2r9zczACPL6XArWEAVBbSgEUd9u8v3upp6-1L84_OI';
+let SHEET_ID = '1SElVFbGXQ9W_X43Kb2S2PFRsxwgW_yGJrIJUdjRCYxc';
 let API_KEY = 'AIzaSyCMTnugKsNlKhajpPTm37IlHFTd_z297Eo';
 
 function fetchSheet({ spreadsheetId, sheetName, apiKey, complete }) {
@@ -22,7 +21,7 @@ function fetchSheet({ spreadsheetId, sheetName, apiKey, complete }) {
 function init() {
     fetchSheet({
         spreadsheetId: SHEET_ID,
-        sheetName: 'nj-senate',
+        sheetName: 'senate_scores_for_map',
         apiKey: API_KEY,
         complete: showInfo
     });
@@ -182,7 +181,7 @@ let map = L.map("map", {
 let geoStyle = function(data) {
     // let legisId = data.properties.legis_id;
     let legisId = parseInt(data.properties.SLDUST);
-    let scoreColor = getColor( NJDistricts[legisId].score_2019);
+    let scoreColor = getColor( NJDistricts[legisId].score_2021);
 
     return {
         fillColor: scoreColor,
@@ -217,13 +216,15 @@ function showInfo(results) {
     let scoreColor;
     let lifetimeScoreColor;
     $.each(data, function(i, member) {
-        scoreColor = getColor(member.score_2019);
+        scoreColor = getColor(member.score_2021);
         member['scoreColor'] = scoreColor;
         lifetimeScoreColor = getColor(member.lifetime_score);
         member['lifetimeScoreColor'] = lifetimeScoreColor;
-        if (member.legis_id) {
-        NJDistricts[member.legis_id] = member;
-       }
+        if (member.district) {
+        NJDistricts[member.district] = member;
+       }else {
+            console.log('noprint')
+        }
     });
     loadGeo();
 }
@@ -255,7 +256,9 @@ function getColor(score) {
             score > 60 ? '#82e0c3' :
                 score > 40 ? '#FEF200' :
                     score > 20 ? '#FCA300' :
-                        'rgb(255,0,0)';
+                        '#E53935';
+                        //'#F00604';
+//                        'rgb(255,0,0)';
 }
 
 function highlightFeature(e) {
