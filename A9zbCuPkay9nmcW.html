@@ -38,7 +38,7 @@
           <i class="fab fa-twitter-square fa-2x"></i></a>
           <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fscorecard.njlcv.org&amp;t=New%20Jersey%20League%20of%20Conservation%20Voters%20Scorecard" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
       </div>
-		<h2>Legislative Scorecard 2019</h2>
+		<h2>Legislative Scorecard 2021</h2>
 	</section>
 </header>
 <div class="feature-wrapper pt-5 pb-5 mt-5 mt-lg-0">
@@ -93,10 +93,16 @@
             <!--<p id='close2' class='close'>&times;</p><br>-->
             <h4 style="text-align: center">Welcome</h4>
             <ul>
-                <li><strong>Mouseover</strong> a legislator dot for details.</li>
-                <li><strong>Click a dot</strong> to freeze the legislator detail panel.</li>
-              <li><strong>Click the 'x'</strong> to dismiss the panel and re-enable mouseover function</li>
+                <li><strong>Mouseover</strong> a legislator dot for details.<br />
+              <i class="fas fa-thumbs-up fa-2x"></i> Thumbs-up is a vote <strong>for</strong> the environment.<br>
+              <i class="fas fa-thumbs-down fa-2x"></i> Thumbs-down is a vote <strong>against</strong> the environment<Br>
+                    <span class="circle">&nbsp;&nbsp;Abstention&nbsp;&nbsp;</span> or <span class="circle">&nbsp;&nbsp;Not Voting&nbsp;&nbsp;</span> on a bill counts as a <strong>negative</strong> when determining <br>the legislator score.</li>
+              <li><strong>Click a district</strong> to freeze the legislator panel.</li>
+                <li><strong>Click the 'x'</strong> to dismiss the legislator panel and re-enable mouseover
+                function.
                 <li><strong>Zoom</strong> into selected district to see street detail.</li>
+
+              </li>
             </ul>
 
         </div>
@@ -110,7 +116,6 @@
             <p>{{{bill_description}}}</p>
             <p><em>Stance: {{{stance}}}</em></p>
             <p><em>Outcome: {{{outcome}}}</em></p>
-            {{result}}
         </div>
     </div>
     {{/each}}
@@ -246,14 +251,3 @@
 </script>
 </body>
 </html>
-
-
-
-/////
-
-Bills -  Object  // Bills.data[index] index = 0~26
-{
-data : array[27],
-errors:
-meta,
-}

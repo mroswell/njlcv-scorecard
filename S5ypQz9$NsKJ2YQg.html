@@ -13,7 +13,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
     <link rel="stylesheet" href="css/style.css?11">
     <link rel="stylesheet" href="css/overrides.css">
@@ -103,11 +103,12 @@
                 <li><strong>Mouseover</strong> a district for details.<br>
                     <i class="fas fa-thumbs-up fa-2x"></i> Thumbs-up is a vote <strong>for</strong> the environment.<br>
                     <i class="fas fa-thumbs-down fa-2x"></i> Thumbs-down is a vote <strong>against</strong> the environment<Br>
-                    <em>Abstention</em> or <em>Not Voting</em> on a bill counts as a <strong>negative</strong> when determining <br>the legislator score.</li>
-                <li><strong>Click a district</strong> to freeze the info panel.</li>
-                <li><strong>Zoom</strong> into selected district to see street detail.</li>
-                <li><strong>Click the 'x'</strong> to dismiss the info panel and re-enable mouseover
+                    <span class="circle">&nbsp;&nbsp;Abstention&nbsp;&nbsp;</span> or <span class="circle">&nbsp;&nbsp;Not Voting&nbsp;&nbsp;</span> on a bill counts as a <strong>negative</strong> when determining <br>the legislator score.</li>
+                <li><strong>Click a district</strong> to freeze the legislator panel.</li>
+                <li><strong>Click the 'x'</strong> to dismiss the legislator panel and re-enable mouseover
                     function.
+                <li><strong>Zoom</strong> into selected district to see street detail.</li>
+
                 </li>
             </ul>
 
@@ -115,11 +116,11 @@
     </div>
 </script>
 <script id="senate-template-bottom" type="text/x-handlebars-template">
-    {{#each priority_votes}}
+    {{#each this}}
     <div class="entry priority_vote" id="bookmark_{{@index}}">
         <div class="body">
-            <h5><a href="#top">{{{billnumber}}}: {{{billname}}}</a></h5>
-            <p>{{{billdescription}}}</p>
+            <h5><a href="#top">{{{bill_number}}}: {{bill_name}}</a></h5>
+            <p>{{{bill_description}}}</p>
             <p><em>Stance: {{{stance}}}</em></p>
             <p><em>Outcome: {{{outcome}}}</em></p>
         </div>
