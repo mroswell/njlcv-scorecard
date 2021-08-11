@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+      a.nav-link[data-chamber="Assembly"]:hover {background-color: #f7f7f7 !important;}
+  </style>
     <title>New Jersey League of Conservation Voters | Legislative Scorecard 2021</title>
     <meta name="robots" content="noindex, nofollow">.
     <meta charset="utf-8">
@@ -26,6 +29,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.7/handlebars.js" integrity="sha256-3kxM38zABJY692X6ViIlt9FsBimhck0ZlsLtuA7R+0Y=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
 </head>
 <body>
 <header class="scorecard-header">
@@ -57,7 +61,7 @@
                         <!--                    <a style="background-color:white; color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="2019-senate-scorecard-map.html">Senate</a>-->
                         <a style="background-color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="S5ypQz9$NsKJ2YQg.html">Senate</a>
                         <!--                    <a style="background-color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="2019-assembly-scorecard-map.html">Assembly</a>-->
-                        <a style="background-color:  white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="A9zbCuPkay9nmcW.html">Assembly</a>
+                        <a data-chamber="Assembly" style="background-color:  white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="A9zbCuPkay9nmcW.html">Assembly</a>
                     </ul>
             </div>
         </div>
@@ -186,7 +190,7 @@
             <p class="child-header" >
                 <img src="{{{image_url}}}" class="img-fluid justify-content-center" alt="Photo">
                 <br>{{{full_name}}} ({{{party}}})
-                <br>District {{{legis_id}}}
+                <br>District {{{district}}}
             </p>
 
             <div class="container">
