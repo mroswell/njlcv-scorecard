@@ -284,7 +284,7 @@
         }
         if (a === b) {
             return opts.fn(this);
-        } else if (a==="A") {
+        } else if (a==="A" ||a==="Abstain" ) {
             return '<span class="circle">&nbsp;&nbsp;Abstained&nbsp;&nbsp;</span>'
         } else if (a==="NV") {
             return '<span class="circle"><span class="circle">&nbsp;&nbsp;Not Voting&nbsp;&nbsp;</span></span>'
