@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>New Jersey League of Conservation Voters | Legislative Scorecard 2019</title>
+  <style>
+      a.nav-link[data-chamber="Assembly"]:hover {background-color: #f7f7f7 !important;}
+  </style>
+    <title>New Jersey League of Conservation Voters | Legislative Scorecard 2021</title>
+    <meta name="robots" content="noindex, nofollow">.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://scorecard.njlcv.org">
     <meta property="og:description" content="New Jersey LCV’s Environmental Scorecard rates each member of the New Jersey Senate and Assembly on their conservation record and actions taken to protect the environment in the Garden State. The Scorecard holds state legislators accountable for their votes on open space, water and air issues that affect families across our state.">
-    <meta property="og:title" content="New Jersey League of Conservation Voters | Legislative Scorecard 2019">
-    <meta property="og:image" content="http://scorecard.njlcv.org/images/NJLCV_Social_Post.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="628">
+    <meta property="og:title" content="New Jersey League of Conservation Voters | Legislative Scorecard 2021">
+  <meta property="og:image" content="http://scorecard.njlcv.org/images/NJLCV_Social_Post-2021.jpg">
+  <meta property="og:image:width" content="1238">
+  <meta property="og:image:height" content="664">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
     <link rel="stylesheet" href="css/style.css?11">
     <link rel="stylesheet" href="css/overrides.css">
@@ -25,65 +29,101 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.7/handlebars.js" integrity="sha256-3kxM38zABJY692X6ViIlt9FsBimhck0ZlsLtuA7R+0Y=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
 </head>
 <body>
 <header class="scorecard-header">
-	<section class="header-container">
-		<a class="scorecard-branding" href="https://www.njlcv.org" title="New Jersey League of Conservation Voters">
+    <section class="header-container">
+        <a class="scorecard-branding" href="https://www.njlcv.org" title="New Jersey League of Conservation Voters">
             <img src="images/njlcv-logo.svg" alt="NJLCV Logo">
-		</a>
+        </a>
       <div class="social-icons">
-          <a href="https://twitter.com/intent/tweet?text=Big%20news!%20%40NJLCV%27s%202019%20Legislative%20Scorecard%20is%20now%20even%20easier%20to%20use.%20The%202018-2019%20legislature%20was%20the%20most%20environmentally%20productive%20in%20over%20a%20decade.%20See%20how%20your%20lawmakers%20scored%20on%20the%20%23NJLCVScore%3A&url=https%3A%2F%2Fscorecard.njlcv.org%2F" target="_blank">
+          <a href="https://twitter.com/intent/tweet?text=Big%20news%21%20%40NJLCV%27s%202021%20Legislative%20Scorecard%20is%20now%20out.%20Come%20check%20out%20how%20your%20legislators%20scored%20on%20the%20environment%20for%20the%202019-2021%20Session%21%20%20%23NJLCVScore%3A&url=https%3A%2F%2Fscorecard.njlcv.org%2F" target="_blank">
               <i class="fab fa-twitter-square fa-2x"></i>
           </a>
           <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fscorecard.njlcv.org&amp;t=New%20Jersey%20League%20of%20Conservation%20Voters%20Scorecard" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
       </div>
-		<h2>Legislative Scorecard 2019</h2>
-	</section>
+        <h2>Legislative Scorecard 2021</h2>
+    </section>
 </header>
 <div class="feature-wrapper pt-5 pb-5 mt-5 mt-lg-0">
     <!-- wides go inside wrapper but outside outer and inner -->
     <div class="container" id="top">
         <div class="row mt-2 mb-2 navigation-buttons">
             <div class="col-4 default-text">
-                <ul class="nav nav-pills flex-column flex-sm-row">
-                    <a style="background-color: #0c0b3e;" class="flex-fill text-sm-center nav-link active" href="#">Senate</a>
-                    <a style="background-color: white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="2019-assembly-scorecard-map.html">Assembly</a>
+<!--                <ul class="nav nav-pills flex-column flex-sm-row">-->
+<!--                    <a style="background-color: #0c0b3e;" class="flex-fill text-sm-center nav-link active" href="#">Senate</a>-->
+<!--                    <a style="background-color: white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="A9zbCuPkay9nmcW.html">Assembly</a>-->
+<!--&lt;!&ndash;                    <a style="background-color: white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="2021-assembly-scorecard-map.html">Assembly</a>&ndash;&gt;-->
 
-                </ul>
+
+                    <ul class="nav nav-pills flex-column flex-sm-row">
+                        <!--                    <a style="background-color:white; color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="2019-senate-scorecard-map.html">Senate</a>-->
+                        <a style="background-color: #0c0b3e" class="flex-fill text-sm-center nav-link active" href="2021-senate-scorecard-map.html">Senate</a>
+                        <!--                    <a style="background-color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="2019-assembly-scorecard-map.html">Assembly</a>-->
+                        <a data-chamber="Assembly" style="background-color:  white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="2021-assembly-scorecard-map.html">Assembly</a>
+                    </ul>
             </div>
         </div>
         <div class="row" id="sidebar-and-map">
             <div id="sidebar" class="default-text"></div>
             <div id="map-and-legend">
-            	<div id="map-legend">
-	            	<p class="map-legend">Legend:
-		            	<span class="legend-item quintile-1">0&ndash;20%</span>
-						<span class="legend-item quintile-2">21&ndash;40%</span>
-						<span class="legend-item quintile-3">41&ndash;60%</span>
-						<span class="legend-item quintile-4">61&ndash;80%</span>
-						<span class="legend-item quintile-5">81&ndash;100%</span>
-	            	</p>
-            	</div>
-		<div id="map"></div>
+                <div id="map-legend">
+                    <p class="map-legend">Legend:
+                        <span class="legend-item quintile-1">0&ndash;20%</span>
+                        <span class="legend-item quintile-2">21&ndash;40%</span>
+                        <span class="legend-item quintile-3">41&ndash;60%</span>
+                        <span class="legend-item quintile-4">61&ndash;80%</span>
+                        <span class="legend-item quintile-5">81&ndash;100%</span>
+                    </p>
+                </div>
+                <div id="map"></div>
+
             </div>
         </div>
         <div class="row" id="lower-content">
             <div class="about_us"><h4>Our Scorecard Votes</h4></div>
             <div id="priorityVotes"></div>
-            <div class="about_us">
-                <h4>About Our Scorecard</h4>
-                <p>New Jersey LCV’s Environmental Scorecard rates each member of the New Jersey Senate and Assembly on their conservation record and actions taken to protect the environment in the Garden State. The Scorecard holds state legislators accountable for their votes on open space, water and air issues that affect families across our state. </p>
-                <p>You will find objective, nonpartisan information about how each member of the legislature voted on conservation issues. Scores are based on rigorous analysis, review, and consultation with environmental policy experts from across the state, and track the most important votes made in the 2017–2019 legislative session. We invite you to examine the scores of your representative and your senator to see how well their votes match up with your conservation values.</p>
+<!--            <div class="about_us">-->
+<!--                <h4>About Our Scorecard</h4>-->
+<!--                <p>New Jersey LCV’s Environmental Scorecard rates each member of the New Jersey Senate and Assembly on their conservation record and actions taken to protect the environment in the Garden State. The Scorecard holds state legislators accountable for their votes on open space, water and air issues that affect families across our state. </p>-->
+<!--                <p>You will find objective, nonpartisan information about how each member of the legislature voted on conservation issues. Scores are based on rigorous analysis, review, and consultation with environmental policy experts from across the state, and track the most important votes made in the 2017–2019 legislative session. We invite you to examine the scores of your representative and your senator to see how well their votes match up with your conservation values.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+  <div class="footer-dark">
+    <footer>
+        <div class="row">
+          <div class="col-md-8 item text">
+            <h3>About Our Scorecard</h3>
+            <p>New&nbsp;Jersey LCV’s Environmental Scorecard rates each member of the New&nbsp;Jersey Senate and Assembly on their conservation record and actions taken to protect the environment in the Garden State. The Scorecard holds state legislators accountable for their votes on open space, water and air issues that affect families across our state.</p>
+            <p>You will find objective, nonpartisan information about how each member of the legislature voted on conservation issues. Scores are based on rigorous analysis, review, and consultation with environmental policy experts from across the state, and track the most important votes made in the 2019–2021 legislative session. We invite you to examine the scores of your representative and your senator to see how well their votes match up with your conservation values.</p>
+          </div>
+<!--          <div class="col-sm-7 col-md-3 item">-->
+<!--            <h3>Services</h3>-->
+<!--            <ul>-->
+
+<!--            </ul>-->
+<!--          </div>-->
+          <div class="col-sm-3 col-md-3 item offset-md-1">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="https://www.njlcv.org/">NJLCV Home</a></li>
+              <li><a href="https://www.njlcv.org/scorecard/library">Scorecard Library</a></li>
+              <li><a href="https://secure.everyaction.com/VTNvHDjh-kuEEZZ1Hj32EA2">Donate</a></li>
+            </ul>
             </div>
+          <div class="col item social"><a href="https://www.facebook.com/NJLCV/"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a><a href="https://twitter.com/njlcv"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i></a><a href="https://www.instagram.com/njlcv/"><i class="fab fa-instagram-square fa-2x" aria-hidden="true"></i></a></div>
+        </div>
+        <p class="copyright">Scorecard Website by Roswell Infographics</p>
+    </footer>
         </div>
     </div>
-
 </div><!-- /container -->
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
 <script type="text/javascript"  src="maps/legislator_points.js?5va15"></script>
-<script src="js/app-2019-senate-map-green.js?8"></script>
+<script src="js/app-2021-senate-map-green.js?10"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
@@ -91,11 +131,15 @@
             <!--<p id='close2' class='close'>&times;</p><br>-->
             <h4 style="text-align: center">Welcome</h4>
             <ul>
-                <li><strong>Mouseover</strong> a district for details.</li>
-                <li><strong>Click a district</strong> to freeze the info panel.</li>
-                <li><strong>Zoom</strong> into selected district to see street detail.</li>
-                <li><strong>Click the 'x'</strong> to dismiss the info panel and re-enable mouseover
+                <li><strong>Mouseover</strong> a district for details.<br>
+                    <i class="fas fa-thumbs-up fa-2x"></i> Thumbs-up is a vote <strong>for</strong> the environment.<br>
+                    <i class="fas fa-thumbs-down fa-2x"></i> Thumbs-down is a vote <strong>against</strong> the environment<Br>
+                    <span class="circle">&nbsp;&nbsp;Abstention&nbsp;&nbsp;</span> or <span class="circle">&nbsp;&nbsp;Not Voting&nbsp;&nbsp;</span> on a bill counts as a <strong>negative</strong> when determining <br>the legislator score.</li>
+                <li><strong>Click a district</strong> to freeze the legislator panel.</li>
+                <li><strong>Click the 'x'</strong> to dismiss the legislator panel and re-enable mouseover
                     function.
+                <li><strong>Zoom</strong> into selected district to see street detail.</li>
+
                 </li>
             </ul>
 
@@ -103,11 +147,11 @@
     </div>
 </script>
 <script id="senate-template-bottom" type="text/x-handlebars-template">
-    {{#each priority_votes}}
-    <div class="entry priority_vote" id="bookmark_{{@index}}">
+    {{#each this}}
+    <div class="entry priority_vote" id="bookmark_{{Number}}">
         <div class="body">
-            <h5><a href="#top">{{{billnumber}}}: {{{billname}}}</a></h5>
-            <p>{{{billdescription}}}</p>
+            <h5><a href="#top">{{{bill_number}}}: {{bill_name}}</a></h5>
+            <p>{{{bill_description}}}</p>
             <p><em>Stance: {{{stance}}}</em></p>
             <p><em>Outcome: {{{outcome}}}</em></p>
         </div>
@@ -121,82 +165,130 @@
             <button type='button' id='close' class='close'>&times;</button>
             <br>
             <p class="child-header" >
-                <img src="{{{image}}}" class="img-fluid justify-content-center" alt="Photo">
+                <img src="{{{image_url}}}" class="img-fluid justify-content-center" alt="Photo">
                 <br>{{{full_name}}} ({{{party}}})
-                <br>District {{{legis_id}}}
+                <br>District {{{district}}}
             </p>
 
             <div class="container">
                 <div class="row justify-content-center mb-3 mt-1">
                     <div class="col-5"  style="text-align:center">
-                        2019 Score<br> <span class="score" style="background-color: {{ scoreColor }}">{{{score_2019}}}%</span>
+                        2021 Score<br> <span class="score" style="background-color: {{ scoreColor }}">{{{score_2021}}}%</span>
                     </div>
                     <div class="col-5" style="text-align:center">
                         Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{lifetime_score}}}%</span>
                     </div>
                 </div>
             </div>
-            <p>{{#if_eq bill1 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_0">1. Upholding Paris Climate Accord</a></p>
-            <p>{{#if_eq bill2 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_1">2. Electric School Buses</a></p>
-            <p>{{#if_eq bill3 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_2">3. Participation in the Regional Greenhouse Gas Initiative</a></p>
-            <p>{{#if_eq bill4 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_3">4. Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)</a></p>
-            <p>{{#if_eq bill5 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_4">5. Electric Vehicle Charging Infrastructure</a></p>
-            <p>{{#if_eq bill6 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_5">6. One-Hour Water Boil Notices</a></p>
-            <p>{{#if_eq bill7 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_6">7. Establishes Clean Vehicle Task Force</a></p>
-            <p>{{#if_eq bill8 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_7">8. Clean Renewable Energy Bill</a></p>
-            <p>{{#if_eq bill9 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_8">9. Automatic Voter Registration</a></p>
-            <p>{{#if_eq bill10 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_9">10. Prohibits Smoking at Public Beaches</a></p>
-            <p>{{#if_eq bill11 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_10">11. Stormwater Utilities</a></p>
-            <p>{{#if_eq bill12 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_11">12. Public Right of Access to Waterways and Beaches</a></p>
-            <p>{{#if_eq bill13 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_12">13. Condemns EPA decision to withdraw from "Once-In-Always-In” (Clean Air Act)</a></p>
-            <p>{{#if_eq bill14 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_13">14. Concerns Fracking Wastewater</a></p>
-            <p>{{#if_eq bill15 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_14">15. Concerns Regulations for Interstate Natural Gas Pipelines</a></p>
-            <p>{{#if_eq bill16 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_15">16. Concerns Fracking Wastewater and the Delaware River Basin</a></p>
-            <p>{{#if_eq bill17 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_16">17. Authorizes Prescribed Burning</a></p>
-            <p>{{#if_eq bill18 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_17">18. Updates Global Warming Response Act</a></p>
-            <p>{{#if_eq bill19 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_18">19. Partial Disclosure Bill</a></p>
-            <p>{{#if_eq bill20 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_19">20. Permanent Open Space Funding</a></p>
-      <br>
+            <p>{{#if_eq bill1 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_1">1. Establishes Rutgers Climate Change Center</a>
+            </p>
+            <p>{{#if_eq bill2 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_2">2. Liberty State Park Protection Act</a>
+            </p>
+            <p>{{#if_eq bill3 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_3">3. Electric Vehicle (EV) Bill</a>
+            </p>
+            <p>{{#if_eq bill4 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_4">4. Plastic Pollution Reduction Act</a>
+            </p>
+            <p>{{#if_eq bill5 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_5">5. Concerns HFC Products</a>
+            </p>
+            <p>{{#if_eq bill6 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_6">6. Concerns Class 1 Renewable Energy Requirements</a>
+            </p>
+            <p>{{#if_eq bill7 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_7">7. Save the Bees Act</a>
+            </p>
+            <p>{{#if_eq bill8 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_8">8. Cumulative Impacts Bill</a>
+            </p>
+            <p>{{#if_eq bill9 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_9">9. Requires Climate Vulnerability Plans</a>
+            </p>
+            <p>{{#if_eq bill10 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_10">10. Early Voting Periods</a>
+            </p>
+            <p>{{#if_eq bill11 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_11">11. Low Carbon Concrete Bill</a>
+            </p>
+            <p>{{#if_eq bill12 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_12">12. Solar Ready Warehouses </a>
+            </p>
+            <p>{{#if_eq bill13 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_13">13. EV infrastructure in redevelopment projects</a>
+            </p>
+            <p>{{#if_eq bill14 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_14">14. Waterfowl Stamp Bill</a>
+            </p>
+            <p>{{#if_eq bill15 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_15">15. Replacing Lead Service Lines</a>
+            </p>
+            <p>{{#if_eq bill16 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_16">16. Water Quality Accountability Act</a>
+            </p>
+            <p>{{#if_eq bill17 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_17">17. Paint stewardship program</a>
+            </p>
+            <p>{{#if_eq bill18 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_18">18. Codifying EMP Energy Goals</a>
+            </p>
+            <p>{{#if_eq bill19 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_19">19. Concerning Offshore Wind Projects</a>
+            </p>
+            <p>{{#if_eq bill20 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_20">20. Recycled Content Bill</a>
+            </p>
+            <p>{{#if_eq bill21 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_21">21. NJ C-PACE program</a>
+            </p>
+            <p>{{#if_eq bill22 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_22">22. NJ Transit Transparency</a>
+            </p>
+            <p>{{#if_eq bill23 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_23">23. Funding NJ Lakes</a>
+            </p>
+            <p>{{#if_eq bill24 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_24">24. Lead Disclosure Statements </a>
+            </p>
+            <p>{{#if_eq bill25 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_25">25. Grid Scale Solar</a>
+            </p>
+            <p>{{#if_eq bill26 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_26">26. Farmland Solar Projects</a>
+            </p>
+            <p>{{#if_eq bill27 "Yes"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}} <a href="#bookmark_27">27. Salem County Offshore Wind</a>
+            </p>
+            <br>
         </div>
     </div>
 </script>
@@ -215,7 +307,7 @@
             return '<span class="circle"><span class="circle">&nbsp;&nbsp;Not Voting&nbsp;&nbsp;</span></span>'
         } else if (a==="EX") {
             return '<span class="circle">&nbsp;&nbsp;Excused&nbsp;&nbsp;</span>'
-        } else if (a==="NIO") {
+        } else if (a==="--") {
             return '<span class="circle wide105">&nbsp;&nbsp;Not in Office&nbsp;&nbsp;</span>'
         } else {
             return opts.inverse(this);
